@@ -1,0 +1,13 @@
+<style>
+    @media (prefers-color-scheme:dark) {
+        div#staff_details_information em {
+            font-weight: 400;
+            color: #804000;
+            color: #eccd8e !important;
+        }
+        
+        div#staff_details_information {
+            color: #cbd2d9 !important;
+        }
+    }   
+</style>

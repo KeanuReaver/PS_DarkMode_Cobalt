@@ -1,0 +1,78 @@
+<style>
+    #navigation {
+        max-width: 460px;
+    }
+    @media (prefers-color-scheme:dark) {
+        :focus-visible {
+            outline: initial !important;
+            box-shadow: initial !important;
+        }
+        body {
+            background-color: #1f2933;
+        }
+        #header {
+            background-color: #1F2933;
+        }
+        #branding-powerschool {
+            filter: brightness(3);
+        }
+        li#userName {
+            color: #e4e7eB;
+        }
+        ul#tools li a {
+            color: #eccd8e;
+        }
+        #navigation {
+            background-color: #323F48;
+        }
+        #search {
+            background-color: #323F48;
+            color: #e4e7eB;
+        }
+        #search 
+        span.deleteicon input[type=text] {
+            background-color: #52606C !important;
+            color: #e4e7eb !important;
+        }
+        span.deleteicon span {
+            filter: brightness(0.8);
+        }
+        input[type="checkbox"]:not(:checked) {
+            filter: brightness(0.5);
+        }
+        
+        select {
+            background-color: #52606C !important;
+            color: #e4e7eb !important;
+        }
+        #fileTree {
+            color: #eccd8e;
+            background-color: #1F2933;
+        }
+        #fileTree li[item-custom=true] {
+            color: #72c5a2 !important;
+        }
+        #fileTree li div {
+          
+        }
+        #fileTree li div:hover {
+            background-color: #6e6043 !important;
+        }
+        #fileTree div.selected {
+            background-color: inherit !important;
+        }
+        #openFiles {
+            background-color: #1f2933;
+        }
+        
+        ::-webkit-scrollbar {
+            background: #616E7C!important;
+        }
+        ::-webkit-scrollbar-corner {
+            background: #616E7C!important;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d3b77f!important;
+        }
+    }
+</style>
