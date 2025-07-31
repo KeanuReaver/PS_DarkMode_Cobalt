@@ -8369,7 +8369,8 @@ body {
     body:not(.disable-dark-mode) tr[style="background-color:#add8e6"],
     body:not(.disable-dark-mode) tr.headerrow>td,
     body:not(.disable-dark-mode) tr[style="background-color: #fff"],
-    body:not(.disable-dark-mode) tr[style="background-color: #fff"]>td[style="background-color: #fff"], td[style="background-color: #fff"] {
+    body:not(.disable-dark-mode) tr[style="background-color: #fff"]>td[style="background-color: #fff"], td[style="background-color: #fff"],
+    body:not(.disable-dark-mode) thead tr td.bold {
         background: #195f7d !important
     }
 
@@ -8449,7 +8450,8 @@ body {
     body:not(.disable-dark-mode) .tablesorter>tbody>tr>td,
     body:not(.disable-dark-mode) .dex-intro,
     body:not(.disable-dark-mode) tr[bgcolor="#f6f6f6"]>td,
-    body:not(.disable-dark-mode) .student_details .student_details_container .student_details_info .student_details_info_name {
+    body:not(.disable-dark-mode) .student_details .student_details_container .student_details_info .student_details_info_name,
+    body:not(.disable-dark-mode) .student_details .student_details_container .student_details_info .student_details_info_name .student_name {
         color: #cbd2d9
     }
 
@@ -8953,15 +8955,25 @@ body {
     body:not(.disable-dark-mode) .ui-state-default,
     body:not(.disable-dark-mode) neon-2_17_0-time-picker label span,
     body:not(.disable-dark-mode) tr.headerRow td,
-    body:not(.disable-dark-mode) table.linkDescList tbody tr[bgcolor="#f6f6f6"] > td.bold {
+    body:not(.disable-dark-mode) table.linkDescList tbody tr[bgcolor="#f6f6f6"] > td.bold,
+    body:not(.disable-dark-mode) td.subhead,
+    body:not(.disable-dark-mode) .pss-accordion .pss-accordion-group-header .pss-accordion-group-title,
+    body:not(.disable-dark-mode) .pss-accordion .pss-accordion-subgroup-header .pss-accordion-group-title,
+    body:not(.disable-dark-mode) .pss-accordion .pss-accordion-group,
+    body:not(.disable-dark-mode) .gridWidget .sortable {
         color: #cbd2d9;
     }
 
     body:not(.disable-dark-mode) .pds-container label,
-    body:not(.disable-dark-mode) font[color="black"] {
+    body:not(.disable-dark-mode) font[color="black"],
+    body:not(.disable-dark-mode) .scrollableDisplay label {
         color: #cbd2d9 !important
     }
     
+    body:not(.disable-dark-mode) .ui-accordion .ui-accordion-header,
+    body:not(.disable-dark-mode) .sticky-block {
+        background-color: inherit;
+    }
 
     body:not(.disable-dark-mode) .gridWidget tbody tr:nth-child(odd),
     body:not(.disable-dark-mode) .ui-jqgrid-bdiv tr:nth-child(odd) td,
@@ -8972,6 +8984,20 @@ body {
     body:not(.disable-dark-mode) td[style="background-color: rgb(255, 255, 255);"]:not(.userTable),
     body:not(.disable-dark-mode) .scrollableDisplay span.schoolRoleSpan:nth-child(odd) {
         background-color: #323F48;
+    }
+    
+    body:not(.disable-dark-mode) #nav-main li:hover,
+    body:not(.disable-dark-mode) #nav-main-frame li:hover,
+    body:not(.disable-dark-mode) .psHelpTOCul li:hover,
+    body:not(.disable-dark-mode) #nav-main-frame td a:hover {
+        background-color: #1f3f1f;
+        color: #cbd2d9;
+    }
+    
+    body:not(.disable-dark-mode) #nav-main-frame a:hover {
+        background-color: inherit;
+        color: inherit;
+        filter: brightness(1);
     }
     
     body:not(.disable-dark-mode) div:not(.fc-timegrid-slots):not(.fc-timegrid-cols)>table:not(.table):not(.routing-table):not(.fc-scrollgrid-sync-table):not(.fc-scrollgrid):not(.fc-scrollgrid-liquid):not(.testScoreTbl) tbody tr[role="row"]:nth-child(odd) > td[style="background-color: rgb(215, 237, 254);"],
@@ -9025,8 +9051,15 @@ body {
         background-color: #3d725c !important;
     }
     
+    body:not(.disable-dark-mode) .confirmationReq, .button.confirmationReq, .ui-dialog .ui-dialog-buttonpane button.ui-button.ui-state-default.confirmationReq {
+        background-color: #EEB1B1 !important;
+    }
+    
     body:not(.disable-dark-mode) table.srDashboardGrid tbody tr[style="background-color: rgb(255, 255, 255);"],
-    body:not(.disable-dark-mode) .pss-accordion .pss-accordion-item-list .pss-accordion-item-row.item-row-odd, .dialogRight {
+    body:not(.disable-dark-mode) .pss-accordion .pss-accordion-item-list .pss-accordion-item-row.item-row-odd, .dialogRight,
+    body:not(.disable-dark-mode) .accordionSection,
+    body:not(.disable-dark-mode) .button-row-wizard,
+    body:not(.disable-dark-mode) .accordionSection.active {
         background-color: #242f39 !important;
     }
 
@@ -9752,9 +9785,11 @@ body {
     }
 
     body:not(.disable-dark-mode) .ui-state-active,
-    body:not(.disable-dark-mode) .ui-widget-content .ui-state-active {
+    body:not(.disable-dark-mode) .ui-widget-content .ui-state-active,
+    body:not(.disable-dark-mode) .ui-accordion .ui-accordion-header {
         border-color: #eccd8e !important;
         background-color: #589e81;
+        background: #589e81;
         color: black !important
     }
 
