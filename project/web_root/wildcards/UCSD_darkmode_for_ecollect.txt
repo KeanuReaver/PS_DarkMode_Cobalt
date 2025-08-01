@@ -2,19 +2,19 @@
     $j(document).ready(function() {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             // Apply styles only if dark mode is preferred
-            $j('.form-control').css({
+            $j('body.set-to-dark:not(.disable-dark-mode)  .form-control').css({
                 'background-color': '#52606D !important',
                 'color': '#CBD2D9 !important'
             });
-            $j('.element a').css({
+            $j('body.set-to-dark:not(.disable-dark-mode)  .element a').css({
                 'background-color': '#eccd8e !important',
                 'color': 'black !important'
             });
-            $j('input').css({
+            $j('body.set-to-dark:not(.disable-dark-mode)  input').css({
                 'background-color': '#52606D !important',
                 'color': '#CBD2D9 !important'
             });
-            $j('.select2-container').css({
+            $j('body.set-to-dark:not(.disable-dark-mode)  .select2-container').css({
                 'background-color': '#52606D !important',
                 'color': '#CBD2D9 !important'
             });
@@ -23,64 +23,64 @@
 </script>
 <style>
     @media (prefers-color-scheme: dark) {
-        .newform .description, .newform .description label, label.choice {
+        body.set-to-dark:not(.disable-dark-mode) .newform .description, body.set-to-dark:not(.disable-dark-mode) .newform .description label, body.set-to-dark:not(.disable-dark-mode) label.choice {
             color: #cbd2d9 !important;
         }
-        .psfieldcontainer>input[disabled], input[disabled], select[disabled], input[type="text"][disabled] {
+        body.set-to-dark:not(.disable-dark-mode) .psfieldcontainer>input[disabled], body.set-to-dark:not(.disable-dark-mode) input[disabled], body.set-to-dark:not(.disable-dark-mode) select[disabled], body.set-to-dark:not(.disable-dark-mode) input[type="text"][disabled] {
             color: #cbd2d9 !important;
         }
         
-        .form-control {
+        body.set-to-dark:not(.disable-dark-mode) .form-control {
             background-color: #52606D !important;
             color: #CBD2D9 !important
         }
-        input {
+        body.set-to-dark:not(.disable-dark-mode) input {
             background-color: #52606D !important;
             color: #CBD2D9 !important
         }
-        .element a.btn {
+        body.set-to-dark:not(.disable-dark-mode) .element a.btn {
             background-color: #eccd8e !important;
             color: black !important
         }
-        .dropdown-menu, .select2-container {
+        body.set-to-dark:not(.disable-dark-mode) .dropdown-menu, body.set-to-dark:not(.disable-dark-mode) .select2-container {
             background-color: #52606D !important;
             color: #CBD2D9 !important
         }
-        .bootstrap a, .bootstrap a:hover {
+        body.set-to-dark:not(.disable-dark-mode) .bootstrap a, body.set-to-dark:not(.disable-dark-mode) .bootstrap a:hover {
             color: #eccd8e
         }
-        .forms-wrapper {
+        body.set-to-dark:not(.disable-dark-mode) .forms-wrapper {
             background-color: #323f48!important;
         }
-        ul.forms-tabs li.selected a, div.dropdowninline div.select2-container a.select2-choice {
+        body.set-to-dark:not(.disable-dark-mode) ul.forms-tabs li.selected a, body.set-to-dark:not(.disable-dark-mode) div.dropdowninline div.select2-container a.select2-choice {
             color: black !important;
         }
-        .card-body {
+        body.set-to-dark:not(.disable-dark-mode) .card-body {
             background: revert;
         }
-        .dropdown-menu > li > a, h1 {
+        body.set-to-dark:not(.disable-dark-mode) .dropdown-menu > li > a, body.set-to-dark:not(.disable-dark-mode) h1 {
             color: #cbd2d9 !important;
         }
-        .whitefill {
+        body.set-to-dark:not(.disable-dark-mode) .whitefill {
             color: black !important;
         }
-        .dropdown-menu > li > a:hover {
+        body.set-to-dark:not(.disable-dark-mode) .dropdown-menu > li > a:hover {
             background-color: #52606D !important;
             filter: brightness(1.2)
         }
-        label.custom-file span {
+        body.set-to-dark:not(.disable-dark-mode) label.custom-file span {
             color: black;
         }
-        div.panel div.panel-heading button.close {
+        body.set-to-dark:not(.disable-dark-mode) div.panel div.panel-heading button.close {
             opacity: 1 !important;
             color: #eccd8e !important;
         }
-        div.panel div.panel-heading button.close:hover {
+        body.set-to-dark:not(.disable-dark-mode) div.panel div.panel-heading button.close:hover {
             filter: brightness(1.2);
             opacity: 1 !important;
             background-color: transparent !important;
         }
-        #nav-main h2 {
+        body.set-to-dark:not(.disable-dark-mode) #nav-main h2 {
             color: #F5F7FA !important
         }
     }
