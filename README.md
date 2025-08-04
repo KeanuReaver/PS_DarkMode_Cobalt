@@ -14,10 +14,9 @@ A messy attempt at giving PowerSchool a darkmode. Works fairly well, but require
 
 ## 🛠️ Development Notes
 
-Built mostly with css media queries but some javascript. Compress contents of project folder and install using PowerSchool's Plugin Management.
+Built mostly with css media queries but some javascript. Compress contents of project folder and install using PowerSchool's Plugin Management. The only file in the images/css folder being used is customization.css. The other files/alterations in that folder are either from older versions or for references and need to be deleted.
 
 ## 🧪 Future Features
 
-- Toggleable controls
-- More modular inserts rather than direct edits of PowerSchool css
-- Properly update css lines with nots and classes
+- Make a properly modular version of powerTeacher Pro. Currently only direct edits to the main.css file are used.
+- Properly update css lines with nots and classes in the bluesteel edits
