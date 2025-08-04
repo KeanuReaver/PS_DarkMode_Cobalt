@@ -20,3 +20,4 @@ Built mostly with css media queries but some javascript. Compress contents of pr
 
 - Toggleable controls
 - More modular inserts rather than direct edits of PowerSchool css
+- Properly update css lines with nots and classes

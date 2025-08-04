@@ -1,20 +1,37 @@
-<span id="darkModeToggleSpan" style="padding-right:20px;">
+<script>
+    (function() {
+    try {
+        const darkKey = "ucsd_dark_mode";
+        const userPref = localStorage.getItem(darkKey);
+        const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = userPref === "1" || (userPref === null && systemPref);
+        if (isDark) {
+            document.documentElement.classList.add('set-to-dark');
+        }
+    } catch (e) {
+        console.warn("Failed to apply dark mode early:", e);
+    }
+})();
+</script>
+
+<!-- Dark Mode Toggle Markup (only if not already present) -->
+<span id="darkModeToggleSpan" style="padding-right:20px; display:none;">
     Dark Mode:
-    <label class="student-blur-switch">
+    <label class="student-dark-switch">
         <input type="checkbox" id="darkModeChbx" name="darkModeChbx">
         <span id="student-dark-slider"></span>
     </label>
 </span>
 
 <style>
-    .student-blur-switch {
+    .student-dark-switch {
         position: relative;
         display: inline-block;
         width: 50px;
         height: 24px;
         vertical-align: middle;
     }
-    .student-blur-switch input {
+    .student-dark-switch input {
         opacity: 0;
         width: 0;
         height: 0;
@@ -30,68 +47,131 @@
         transition: 0.4s;
         border-radius: 24px;
         width: 50px;
-        height: 24px;
+        height: 20px;
+    }
+    
+    #student-dark-slider::after {
+        content: "Off";
+        position: absolute;
+        left: 26px;
+        top: 1px;
+        color: black;
+        font-size: 12px;
+        font-weight: bold;
+        pointer-events: none;
+        transition: background-color 0.4s ease;
     }
     #student-dark-slider:before {
         position: absolute;
         content: "";
-        height: 20px;
-        width: 20px;
+        height: 16px;
+        width: 16px;
         left: 2px;
         bottom: 2px;
         background-color: white;
         transition: 0.4s;
         border-radius: 50%;
+        z-index: 100;
     }
-
-    @media (prefers-color-scheme: dark) {
-        body:not(.disable-dark-mode) #darkModeToggleSpan {
-            color: #cbd2d9;
-        }
-
-        body:not(.disable-dark-mode) #student-dark-slider {
-            background-color: #444;
-        }
-
-        body:not(.disable-dark-mode) .student-blur-switch input:checked + #student-dark-slider {
-            background-color: #2ecc71;
-        }
-
-        body:not(.disable-dark-mode) #student-dark-slider:before {
-            background-color: #fff;
-        }
-    }   
+    .student-dark-switch input:checked + #student-dark-slider {
+        background-color: green;
+    }
+    .student-dark-switch input:checked + #student-dark-slider:before {
+        transform: translateX(30px);
+    }
+    
+    .student-dark-switch input:checked + #student-dark-slider::after {
+        content: "On";
+        left: 8px !important;
+    }
+    body.set-to-dark:not(.disable-dark-mode) #darkModeToggleSpan {
+        color: #cbd2d9;
+    }
+    body.set-to-dark:not(.disable-dark-mode) #student-dark-slider {
+        background-color: #444;
+    }
+    body.set-to-dark:not(.disable-dark-mode) .student-dark-switch input:checked + #student-dark-slider {
+        background-color: #2ecc71;
+    }
+    body.set-to-dark:not(.disable-dark-mode) #student-dark-slider:before {
+        background-color: #fff;
+    }
 </style>
 
 <script>
-    $j(() => {
-        const darkKey = "ucsd_dark_mode";
+$j(() => {
+    const darkKey = "ucsd_dark_mode";
+    const toggleId = "#darkModeToggleSpan";
+
+    // Prevent inserting toggle multiple times
+    if ($j(toggleId).length === 1 && !$j(toggleId).is(":visible")) {
+        const shouldDisableDarkMode =
+            window.location.pathname.startsWith('/admin/reports/rcBuilder/') &&
+            !window.location.pathname.startsWith('/admin/reports/rcBuilder/home');
+
+        if (shouldDisableDarkMode) {
+            $j("body").addClass("disable-dark-mode");
+
+            $j("iframe").each(function () {
+                const iframe = this;
+                $j(iframe).on("load", function () {
+                    try {
+                        const iframeBody = $j(iframe).contents().find("body");
+                        iframeBody.addClass("disable-dark-mode");
+                    } catch (e) {
+                        console.warn("Could not access iframe:", iframe);
+                    }
+                });
+
+                if (iframe.contentDocument?.readyState === "complete") {
+                    try {
+                        const iframeBody = $j(iframe).contents().find("body");
+                        iframeBody.addClass("disable-dark-mode");
+                    } catch (e) {
+                        console.warn("Access denied to iframe body:", iframe);
+                    }
+                }
+            });
+        }
 
         function applyDarkMode() {
             const userPref = localStorage.getItem(darkKey); // "1", "0", or null
             const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
             const isDark = userPref === "1" || (userPref === null && systemPref);
 
+            $j("body").toggleClass("set-to-dark", isDark);
+            $j("body").toggleClass("set-to-light", !isDark);
             $j("#darkModeChbx").prop("checked", isDark);
-
-            (isDark) ? $j("body").addClass("set-to-dark") : $j("body").removeClass("set-to-dark");
         }
 
-        $j("#currentscope").prepend($j("#darkModeToggleSpan"));
+        // Move toggle into place if possible
+        const insertTargets = ["#currentscope", "#tools"];
+        for (const sel of insertTargets) {
+            const $target = $j(sel);
+            if ($target.length && !$target.find(toggleId).length) {
+                $target.prepend($j(toggleId));
+                break;
+            }
+        }
 
+        // Show toggle
+        $j(toggleId).show();
+
+        // Apply dark mode state
         applyDarkMode();
 
-        // Watch for changes
-        $j("#darkModeChbx").on("change", function () {
+        // Debounced change handler
+        $j("#darkModeChbx").off("change.ucsd").on("change.ucsd", function () {
             localStorage.setItem(darkKey, this.checked ? "1" : "0");
             applyDarkMode();
         });
 
-        // Watch for system preference change (optional)
+        // React to system preference change
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
             if (localStorage.getItem(darkKey) === null) {
                 applyDarkMode(); // only reapply if no user override
             }
         });
-    });
+    }
+});
 </script>
