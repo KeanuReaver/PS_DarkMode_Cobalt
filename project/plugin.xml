@@ -4,7 +4,7 @@
         xmlns="http://plugin.powerschool.pearson.com"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         description="Dark Mode for new UI"
-        name="UCSD - New UI Dark Mode - Cobalt"
+        name="UCSD - Dark Mode - Cobalt - Core"
         xsi:schemaLocation="http://plugin.powerschool.pearson.com plugin.xsd">
     <publisher name="Alec McLeran">
         <contact email="mclerana@urbandaleschools.com"/>

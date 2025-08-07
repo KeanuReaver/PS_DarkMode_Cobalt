@@ -1,9 +1,26 @@
 /* Use this file to add Custom CSS to PowerSchool */
+
+
 [pss-expand-collapse-item] {
     -webkit-user-select: none; /* Chrome, Safari */
     -moz-user-select: none;    /* Firefox */
     -ms-user-select: none;     /* IE/Edge */
     user-select: none;         /* Standard */
+}
+
+body {
+    height: auto;
+    min-height: 100%;
+}
+
+html.set-to-light {
+    background: white !important;
+    background-color: white !important;
+}
+
+html.set-to-dark {
+    background-color: #1F2933;
+    background: #1F2933;
 }
 
 @media screen and (min-width: 769px) {
@@ -12,12 +29,59 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light),
+@media screen and (min-width: 769px) and (prefers-color-scheme: dark) {
     body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #nav-main,
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #header {
-        background-color: #1F2933;
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #header,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #content-main {
+        background-color: #242f39;
+        background-image: none;
+        color: #cbd2d9;
     }
+}
+
+@media screen and (min-width: 769px) and (prefers-color-scheme: light) {
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #nav-main,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #header, 
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #content-main {
+        background-color: white;
+        color: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #5a61b9;
+    }
+    
+    html.set-to-light {
+        background: white;
+        background-color: white;
+    }
+    
+    html.set-to-dark {
+        background-color: #1F2933;
+        background: #1F2933;
+    }
+    
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.frameMenu) {
+        background-color: #1F2933;
+        background-image: none;
+        color: #cbd2d9;
+    }
+    
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #nav-main,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #header,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container-frame.pds:not(.pds-left-nav).details_view #content-main {
+        background-color: #242f39;
+        background-image: none;
+        color: #cbd2d9;
+    }
+    
+    /*body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) *:not(#nav-main):not(#header):not(td):not(span):not(th) {*/
+    /*    background-color: #323F48;*/
+    /*    background-image: none;*/
+    /*    color: #cbd2d9;*/
+    /*}*/
 }
 
 ul.tabs li a:focus-visible {
@@ -39,15 +103,90 @@ body.set-to-dark:not(.disable-dark-mode) {
     background-color: #1F2933;
 }
 
+#content-main {
+    background-color: white;
+}
+
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light)  #printLink:not(#nav-main):not(#header),
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light)  #printLink img:not(#nav-main):not(#header),
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) .dontPrint a:not(#nav-main):not(#header),
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) .dontPrint button:not(#nav-main):not(#header) {
+    background-color: #004890;
+    color: white;
+}
+
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light)  #printLink:not(#nav-main):not(#header):hover,
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light)  #printLink:not(#nav-main):not(#header):hover img:not(#nav-main):not(#header),
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) .dontPrint a:not(#nav-main):not(#header):hover,
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) .dontPrint button:not(#nav-main):not(#header):hover {
+    background-color: #009044
+}
+
 @media (prefers-color-scheme:light) {
+    html {
+        background-color: #5a61b9;
+    }
+    
+    html.set-to-light {
+        background: white;
+        background-color: white;
+    }
+    
+    html.set-to-dark {
+        background-color: #1F2933;
+        background: #1F2933;
+    }
     body {
         background-color: white !important;
+        
     }
     
     body.set-to-dark:not(.disable-dark-mode) {
         background-color: #1F2933;
     }
+    
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) {
+        background-color: white;
+        color: black;
+        
+    }
+    
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #nav-main,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #header, 
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #content-main {
+        background-color: white;
+        color: black;
+    }
+    
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) *:not(#nav-main):not(#header) {
+        background-color: white;
+        color: black;
+    }
 }
+
+#students_picker_student_context {
+    z-index: 1;
+}
+
+body:not(.set-to-dark) #nav-main, 
+body.set-to-light:not(.set-to-dark) #nav-main {
+    background-color: #f5f7fa;
+}
+
+
+h1.expanded, 
+h2.expanded, 
+h3.expanded, 
+h4.expanded, 
+h5.expanded, 
+h1.collapsed, 
+h2.collapsed, 
+h3.collapsed, 
+h4.collapsed, 
+h5.collapsed {
+    margin-right: 20px;
+}
+
 /* Logo */
 .pslogin #branding-powerschool .pds-logo-text-primary {
     font-family: Karla, sans-serif;
@@ -7781,10 +7920,28 @@ body.frameMenu {
 .blue-text {
     color: blue;
 }
+
+.table_group_expanded,
+.table_group_expanded:hover,
+.table_group_collapsed,
+.table_group_collapsed:hover {
+    background-color: transparent;
+}
 /****************************************************************************************************/
 /****************************************************************************************************/
 /****************************************************************************************************/
 /****************************************************************************************************/
+body.set-to-dark:not(.disable-dark-mode) #container-frame #content-main,
+#container-frame #content-main,
+body.set-to-dark:not(.disable-dark-mode) #container-frame,
+#container-frame,
+html {
+    min-height: 100%;
+    height: 100%
+}
+
+
+
 body.set-to-dark:not(.disable-dark-mode) .box-round>.fluid-form {
     background-color: #323F48;
 }
@@ -7801,9 +7958,19 @@ body.set-to-dark:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiN
     background-image: none;
 }
 
-body.set-to-dark:not(.disable-dark-mode) div.psfilter-exclude {
+body.set-to-dark:not(.disable-dark-mode) div.psfilter-exclude,
+body.set-to-dark:not(.disable-dark-mode) .table_group_expanded,
+body.set-to-dark:not(.disable-dark-mode) .table_group_expanded:hover,
+body.set-to-dark:not(.disable-dark-mode) .table_group_collapsed,
+body.set-to-dark:not(.disable-dark-mode) .table_group_collapsed:hover {
     background-color: transparent;
 }
+
+body.set-to-dark:not(.disable-dark-mode) .table_group_expanded,
+body.set-to-dark:not(.disable-dark-mode) .table_group_collapsed {
+    filter: invert(1)  
+}
+
 body.set-to-dark:not(.disable-dark-mode) .cmt {
     color: #622121 !important;
 }
@@ -7812,7 +7979,8 @@ body.set-to-dark:not(.disable-dark-mode) p > b {
     color: inherit;
 }
 
-body.set-to-dark:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container-frame.pds:not(.pds-left-nav):not(.disable-dark-mode).details_view #content-main {
+body.set-to-dark:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container-frame.pds:not(.pds-left-nav):not(.disable-dark-mode).details_view #content-main,
+body.set-to-dark:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #pds-left-nav-wrapper {
     background-color: #1F2933;
     background: #1F2933;
 }
@@ -7920,6 +8088,11 @@ body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-accordion button.neon-accor
 
 body.set-to-dark:not(.disable-dark-mode) article H2:not(.normal) {
     color: white !important;
+}
+
+body.set-to-dark:not(.disable-dark-mode) #addCategoryButton.fav-button span {
+    color: #cbd2d9;
+    fill: #cbd2d9;
 }
 
 body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-icon,
@@ -8041,6 +8214,11 @@ body.set-to-dark:not(.disable-dark-mode) #print_slip div {
     background-image: none;
 }
 
+body.set-to-dark:not(.disable-dark-mode) ul.ui-tabs-nav.ui-corner-all.ui-widget-header,
+body.set-to-dark:not(.disable-dark-mode) ul.tabs {
+    background-image: url(../img/tab-back-line.png);
+}
+
 body.set-to-dark:not(.disable-dark-mode) #print_slip fieldset>legend {
     color: #cbd2d9 !important;
 }
@@ -8124,7 +8302,9 @@ body.set-to-dark:not(.disable-dark-mode) .ui-icon-triangle-1-e {
 body.set-to-dark:not(.disable-dark-mode) input[type="button"] {
     padding: 5px;
 }
-body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-nav-secondary.pds-app-nav ul.pds-app-nav li.pds-nav-secondary-group.pds-app-nav span.secondary-nav-link-header.pds-app-nav, .pds-app-nav-content.pds-four-tier-support.pds-app-nav .pds-nav-primary.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav .pds-app-nav-secondary-tier.pds-app-nav .pds-app-nav-secondary-tier-header.pds-app-nav, .pds-app-nav-content.pds-four-tier-support.pds-app-nav .pds-nav-primary.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav .pds-app-nav-third-and-fourth-tiers.pds-app-nav .pds-app-nav-scrolling-third-and-fourth-tier-content.pds-app-nav .pds-app-nav-tertiary-group.pds-app-nav .pds-app-nav-tertiary-item-header.pds-app-nav {
+body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-nav-secondary.pds-app-nav ul.pds-app-nav li.pds-nav-secondary-group.pds-app-nav span.secondary-nav-link-header.pds-app-nav, 
+body.set-to-dark:not(.disable-dark-mode) .pds-app-nav-content.pds-four-tier-support.pds-app-nav .pds-nav-primary.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav .pds-app-nav-secondary-tier.pds-app-nav .pds-app-nav-secondary-tier-header.pds-app-nav, 
+body.set-to-dark:not(.disable-dark-mode) .pds-app-nav-content.pds-four-tier-support.pds-app-nav .pds-nav-primary.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav .pds-app-nav-third-and-fourth-tiers.pds-app-nav .pds-app-nav-scrolling-third-and-fourth-tier-content.pds-app-nav .pds-app-nav-tertiary-group.pds-app-nav .pds-app-nav-tertiary-item-header.pds-app-nav {
     color: #cbd2d9 !important;
 }
 
@@ -8193,7 +8373,9 @@ html body.set-to-dark:not(.disable-dark-mode),
 body.set-to-dark:not(.disable-dark-mode) #quickDataCharts h4,
 body.set-to-dark:not(.disable-dark-mode) .chart-footer,
 body.set-to-dark:not(.disable-dark-mode) .content-main,
-body.set-to-dark:not(.disable-dark-mode) content-main[role="main"] {
+body.set-to-dark:not(.disable-dark-mode) content-main[role="main"],
+body.set-to-dark:not(.disable-dark-mode) .alertContent,
+body.set-to-dark:not(.disable-dark-mode) #container {
     background-color: #1F2933;
     color: #cbd2d9
 }
@@ -8235,7 +8417,7 @@ body.set-to-dark:not(.disable-dark-mode) .prDropList .ui-widget-header .ui-state
     background-color: #589e81
 }
 
-body.set-to-dark:not(.disable-dark-mode) ul.tabs li.selected,
+body.set-to-dark:not(.disable-dark-mode) ul#nav-secondary.shown_tabs li.selected,
 body.set-to-dark:not(.disable-dark-mode) li.ui-tabs-selected,
 body.set-to-dark:not(.disable-dark-mode) div.tabs ul.ui-tabs-nav li.ui-state-active:hover,
 body.set-to-dark:not(.disable-dark-mode) .ui-tabs .ui-tabs-nav li.ui-tabs-active,
@@ -8243,11 +8425,23 @@ body.set-to-dark:not(.disable-dark-mode) ul.tabs li.selected>a,
 body.set-to-dark:not(.disable-dark-mode) li.ui-tabs-selected>a,
 body.set-to-dark:not(.disable-dark-mode) div.tabs ul.ui-tabs-nav li.ui-state-active:hover>a,
 body.set-to-dark:not(.disable-dark-mode) .ui-tabs .ui-tabs-nav li.ui-tabs-active>a {
-    background-color: #589e81;
-    color: black !important
+    background-color: #1F2933;
+    color: #eccd8e !important;
+    
+    /*background-color: #1F2933;*/
+    /*color: #eccd8e !important;*/
+    /*border-top: 2pt solid;*/
+    /*border-left: 1pt solid;*/
+    /*border-right: 1pt solid;*/
+    /*border-radius: 5pt 5pt 0 0;*/
+    /*border-color: #9b8fd3;*/
 }
 
-
+body.set-to-dark:not(.disable-dark-mode) ul#nav-secondary.shown_tabs li.selected,
+body.set-to-dark:not(.disable-dark-mode) #nav-secondary .selected,
+body.set-to-dark:not(.disable-dark-mode) .shown_tabs .selected {
+    border-top: 2pt solid white;
+}
 
 body.set-to-dark:not(.disable-dark-mode) #container-frame.new .dropDownList .second-line,
 body.set-to-dark:not(.disable-dark-mode) #container.new .dropDownList .second-line,
@@ -8365,7 +8559,8 @@ body.set-to-dark:not(.disable-dark-mode) .pds-icon-plus-alt {
 body.set-to-dark:not(.disable-dark-mode) .angucomplete-dropdown,
 body.set-to-dark:not(.disable-dark-mode) #attTotal,
 body.set-to-dark:not(.disable-dark-mode) #termAbsTotal,
-body.set-to-dark:not(.disable-dark-mode) #termTarTotal {
+body.set-to-dark:not(.disable-dark-mode) #termTarTotal,
+body.set-to-dark:not(.disable-dark-mode) .scrollableDisplay span:nth-child(2n+1) {
     background-color: #323F48;
 }
 
@@ -8440,7 +8635,8 @@ body.set-to-dark:not(.disable-dark-mode) td[style="background-color: white;"] {
 }
 
 body.set-to-dark:not(.disable-dark-mode) table table tbody tr:nth-child(odd)>td,
-body.set-to-dark:not(.disable-dark-mode) .yui-skin-sam .yui-dt-data tr.yui-dt-odd {
+body.set-to-dark:not(.disable-dark-mode) .yui-skin-sam .yui-dt-data tr.yui-dt-odd,
+body.set-to-dark:not(.disable-dark-mode) .scrollableDisplay span:nth-child(2n) {
     background-color: #242f39;
 }
 
@@ -8695,7 +8891,7 @@ body.set-to-dark:not(.disable-dark-mode) .no_bullet li {
 }
 
 body.set-to-dark:not(.disable-dark-mode) section.manage-fav-body .favorites-button-header {
-    background-color: #eccd8e !important;
+    background-color: transparent !important;
 }
 body.set-to-dark:not(.disable-dark-mode) #studentSignIn {
     color: black !important;
@@ -8951,8 +9147,14 @@ body.set-to-dark:not(.disable-dark-mode) .form.editable #formcontainer .element.
 body.set-to-dark:not(.disable-dark-mode) .box-round table.linkDescList th,
 body.set-to-dark:not(.disable-dark-mode) table.pvtTable tbody tr th,
 body.set-to-dark:not(.disable-dark-mode) table.pvtTable thead tr th,
-body.set-to-dark:not(.disable-dark-mode) #dashPortlets h3 {
+body.set-to-dark:not(.disable-dark-mode) #dashPortlets h3,
+body.set-to-dark:not(.disable-dark-mode) .button-footer.notification {
     background: #195f7d !important;
+}
+
+body.set-to-dark:not(.disable-dark-mode) .ui-datepicker-header {
+    background: #242f39 !important;
+    color: #cbd2d9;
 }
 
 body.set-to-dark:not(.disable-dark-mode) .pss-drawer,
@@ -8991,7 +9193,8 @@ body.set-to-dark:not(.disable-dark-mode) td.subhead,
 body.set-to-dark:not(.disable-dark-mode) .pss-accordion .pss-accordion-group-header .pss-accordion-group-title,
 body.set-to-dark:not(.disable-dark-mode) .pss-accordion .pss-accordion-subgroup-header .pss-accordion-group-title,
 body.set-to-dark:not(.disable-dark-mode) .pss-accordion .pss-accordion-group,
-body.set-to-dark:not(.disable-dark-mode) .gridWidget .sortable {
+body.set-to-dark:not(.disable-dark-mode) .gridWidget .sortable,
+body.set-to-dark:not(.disable-dark-mode) .pds-container .pds-panel h3, .pds-container .pds-panel-floating-trigger > .pds-panel-floating h3, .pds-container .pds-panel-header {
     color: #cbd2d9;
 }
 
@@ -9013,7 +9216,9 @@ body.set-to-dark:not(.disable-dark-mode) table.linkDescList tbody tr:nth-child(o
 body.set-to-dark:not(.disable-dark-mode) table.zebra tbody tr:nth-child(odd)>td,
 body.set-to-dark:not(.disable-dark-mode) div:not(.fc-timegrid-slots):not(.fc-timegrid-cols)>table:not(.table):not(.routing-table):not(.fc-scrollgrid-sync-table):not(.fc-scrollgrid):not(.fc-scrollgrid-liquid):not(.testScoreTbl) tbody tr:nth-child(odd)>td,
 body.set-to-dark:not(.disable-dark-mode) td[style="background-color: rgb(255, 255, 255);"]:not(.userTable),
-body.set-to-dark:not(.disable-dark-mode) .scrollableDisplay span.schoolRoleSpan:nth-child(odd) {
+body.set-to-dark:not(.disable-dark-mode) .scrollableDisplay span.schoolRoleSpan:nth-child(odd),
+body.set-to-dark:not(.disable-dark-mode) table table tr:nth-child(2n+1) > td,
+body.set-to-dark:not(.disable-dark-mode) .ui-state-default, .ui-widget-content .ui-state-default {
     background-color: #323F48;
 }
 
@@ -9044,7 +9249,20 @@ body.set-to-dark:not(.disable-dark-mode) table:not(.userTable) td[style="backgro
     background-color: #323F48 !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-modal-drawer .neon-drawer-container .neon-drawer, article.neon-2_4_0-popper-content, neon-2_4_0-list-item .neon-list-item:is(button,label,a), svg[style="fill: var(--neon-2_4_0-color-gray-500)"], neon-2_4_0-list-item .neon-list-item-body, neon-2_4_0-list-item .neon-list-item-subtext, neon-2_4_0-list-item .neon-list-item-text, neon-2_4_0-list-item .neon-list-item:is(button,label,a):hover, neon-2_4_0-text-field div.neon-abstract-input-info .neon-input-field-label, .buttonpane {
+body.set-to-dark:not(.disable-dark-mode) .psteacher table#teacherSectionTable td a:hover {
+    background-color: #395765 !important;
+}
+
+body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-modal-drawer .neon-drawer-container .neon-drawer, 
+body.set-to-dark:not(.disable-dark-mode) article.neon-2_4_0-popper-content, 
+body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-list-item .neon-list-item:is(button,label,a), 
+body.set-to-dark:not(.disable-dark-mode) svg[style="fill: var(--neon-2_4_0-color-gray-500)"], 
+body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-list-item .neon-list-item-body, 
+body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-list-item .neon-list-item-subtext, 
+body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-list-item .neon-list-item-text, 
+body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-list-item .neon-list-item:is(button,label,a):hover, 
+body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-text-field div.neon-abstract-input-info .neon-input-field-label, 
+body.set-to-dark:not(.disable-dark-mode) .buttonpane {
     color: #cbd2d9 !important;
     background-color: #323F48;
     fill: #cbd2d9 !important;
@@ -9056,7 +9274,8 @@ body.set-to-dark:not(.disable-dark-mode) .pvtFilterBox {
 
 body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-select-field div.neon-abstract-input-info p.neon-input-field-badge, neon-2_4_0-modal-drawer .neon-drawer-container header.neon-modal-drawer-title,
 body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-select-field div.neon-abstract-input-info .neon-input-field-label, neon-2_4_0-text-field div.neon-abstract-input-info p.neon-input-field-badge,
-body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-checkbox-single label .neon-2_4_0-checkbox-text {
+body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-checkbox-single label .neon-2_4_0-checkbox-text,
+body.set-to-dark:not(.disable-dark-mode) .neon-select-field-selected-header-text {
     color: #cbd2d9 !important;
 }
 
@@ -9072,7 +9291,8 @@ body.set-to-dark:not(.disable-dark-mode):not(.powerlunch-new):not(.quickdata):no
 body.set-to-dark:not(.disable-dark-mode) .pseudoDialog,
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-bdiv td,
 body.set-to-dark:not(.disable-dark-mode) table.grid tr:nth-child(even)>td,
-body.set-to-dark:not(.disable-dark-mode) .scrollableDisplay span.schoolRoleSpan:nth-child(even) {
+body.set-to-dark:not(.disable-dark-mode) .scrollableDisplay span.schoolRoleSpan:nth-child(even),
+body.set-to-dark:not(.disable-dark-mode) .mfe-student-observations-form-container > :first-child {
     background-color: #242f39
 }
 body.set-to-dark:not(.disable-dark-mode) table.tablesorter tr:nth-child(even)>td {
@@ -9248,7 +9468,8 @@ body.set-to-dark:not(.disable-dark-mode) table.grid tr:nth-child(odd) td.notInSe
     filter: brightness(.2)
 }
 
-body.set-to-dark:not(.disable-dark-mode) .tile .tile-big-text {
+body.set-to-dark:not(.disable-dark-mode) .tile .tile-big-text,
+body.set-to-dark:not(.disable-dark-mode) .mfe-student-observations-container.mfe-student-observations-sis_container {
     background-color: #3E4C59;
     color: #cbd2d9
 }
@@ -9422,7 +9643,10 @@ body.set-to-dark:not(.disable-dark-mode) #btnNoNav em {
     filter: invert(1)
 }
 
-body.set-to-dark:not(.disable-dark-mode) div.nav,
+body.set-to-dark:not(.disable-dark-mode) div.nav {
+    background-color: #323F48;
+}
+
 body.set-to-dark:not(.disable-dark-mode) #btnNoNav em {
     background-color: inherit;
 }
@@ -9439,7 +9663,7 @@ body.set-to-dark:not(.disable-dark-mode) #nav-main li:hover {
     filter: brightness(1.2);
 }
 
-body.set-to-dark:not(.disable-dark-mode) .ui-state-highlight,
+body.set-to-dark:not(.disable-dark-mode) table .psfilter td.psfilter.ui-state-highlight:not(.th),
 body.set-to-dark:not(.disable-dark-mode) .ui-widget-content .ui-state-highlight,
 body.set-to-dark:not(.disable-dark-mode) .uiwidget-header .ui-state-highlight,
 body.set-to-dark:not(.disable-dark-mode) table.linkDescList tbody tr:nth-child(2n+1)>td.ui-state-highlight {
@@ -9498,37 +9722,59 @@ body.set-to-dark:not(.disable-dark-mode) .reports-standard-table-tr {
     background-color: inherit;
 }
 
-body.set-to-dark:not(.disable-dark-mode) label[for="add-category-input"] {
-    color: #1F2933 !important;
-}
+/*body.set-to-dark:not(.disable-dark-mode) label[for="add-category-input"] {*/
+/*    color: #1F2933 !important;*/
+/*}*/
 
 body.set-to-dark:not(.disable-dark-mode) .pds-modal.pds-drawer-mode.pds-dialog.favorite-menu-dialog .favorites-modal-footer {
     background-color: #195f7d !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) .pds-pop-over-panel.pds-pop-over .pds-pop-over-menu-items.pds-pop-over .pds-pop-over-trigger-button.pds-pop-over:focus, .pds-pop-over-panel.pds-pop-over .pds-pop-over-menu-items.pds-pop-over .pds-pop-over-trigger-button.pds-pop-over:hover, .pds-pop-over-panel.pds-pop-over .pds-pop-over-menu-items.pds-pop-over>div.pds-pop-over button.pds-pop-over:focus, .pds-pop-over-panel.pds-pop-over .pds-pop-over-menu-items.pds-pop-over>div.pds-pop-over button.pds-pop-over:hover, button.pds-pop-over[disabled] {
+body.set-to-dark:not(.disable-dark-mode) .pds-button-blend.pds-button-round .pds-icon-0[name="checkmark-alt"],
+body.set-to-dark:not(.disable-dark-mode) .pds-button-blend.pds-button-round .pds-icon-0[name="checkmark-alt"] .pds-icon-checkmark-alt.pds-icon-svg.pds-icon {
+    filter: none !important;
+    fill: #7ecc7e !important;
+}
+
+body.set-to-dark:not(.disable-dark-mode) .pds-button-blend.pds-button-round .pds-icon-0[name="x-alt"],
+body.set-to-dark:not(.disable-dark-mode) .pds-button-blend.pds-button-round .pds-icon-0[name="x-alt"] .pds-icon-x-alt.pds-icon-svg.pds-icon {
+    filter: none !important;
+    fill: #ff5c5c !important;
+}
+
+body.set-to-dark:not(.disable-dark-mode) .pds-pop-over-panel.pds-pop-over .pds-pop-over-menu-items.pds-pop-over .pds-pop-over-trigger-button.pds-pop-over:focus, 
+body.set-to-dark:not(.disable-dark-mode) .pds-pop-over-panel.pds-pop-over .pds-pop-over-menu-items.pds-pop-over .pds-pop-over-trigger-button.pds-pop-over:hover, 
+body.set-to-dark:not(.disable-dark-mode) .pds-pop-over-panel.pds-pop-over .pds-pop-over-menu-items.pds-pop-over>div.pds-pop-over button.pds-pop-over:focus, 
+body.set-to-dark:not(.disable-dark-mode) .pds-pop-over-panel.pds-pop-over .pds-pop-over-menu-items.pds-pop-over>div.pds-pop-over button.pds-pop-over:hover, 
+body.set-to-dark:not(.disable-dark-mode) button.pds-pop-over[disabled],
+body.set-to-dark:not(.disable-dark-mode) .pds-container button.pds-button-blend,
+body.set-to-dark:not(.disable-dark-mode) .neon-list-item.neon-list-item-button.neon-list-item-type-button {
     background-color: transparent !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) .dex-intro {
+body.set-to-dark:not(.disable-dark-mode) .dex-intro,
+body.set-to-dark:not(.disable-dark-mode) p.neon-2_20_1-text,
+body.set-to-dark:not(.disable-dark-mode) .neon-list-item-text {
     color: #cbd2d9 !important;
 }
 
 body.set-to-dark:not(.disable-dark-mode) .gridSched td:last-child,
 body.set-to-dark:not(.disable-dark-mode) .pds-pop-over-panel.pds-pop-over .pds-pop-over-menu-items.pds-pop-over,
-body.set-to-dark:not(.disable-dark-mode) .table-striped > tbody > tr:nth-of-type(2n+1) {
+body.set-to-dark:not(.disable-dark-mode) .table-striped > tbody > tr:nth-of-type(2n+1),
+body.set-to-dark:not(.disable-dark-mode) .neon-item-picker-list {
     background-color: #323F48;
 }
 
 body.set-to-dark:not(.disable-dark-mode) .gridSched th,
 body.set-to-dark:not(.disable-dark-mode) td.scheduleHeader,
 body.set-to-dark:not(.disable-dark-mode) #form-list-table th,
-body.set-to-dark:not(.disable-dark-mode) #responderTable th{
+body.set-to-dark:not(.disable-dark-mode) #responderTable th {
     background-color: #195f7d !important;
 }
 
 body.set-to-dark:not(.disable-dark-mode) td.scheduleTickOdd,
-body.set-to-dark:not(.disable-dark-mode) td.scheduleTickEven {
+body.set-to-dark:not(.disable-dark-mode) td.scheduleTickEven,
+body.set-to-dark:not(.disable-dark-mode) .neon-2_20_1-popper-content {
     background-color: #242f39 !important;
 }
 
@@ -9898,7 +10144,7 @@ body.set-to-dark:not(.disable-dark-mode) .yui-skin-sam tr.yui-dt-odd td.yui-dt-d
 }
 
 body.set-to-dark:not(.disable-dark-mode) .ui-widget-content:not(.tabs) {
-    border: 1px solid #616E7C;
+    /*border: 1px solid #616E7C;*/
 }
 
 body.set-to-dark:not(.disable-dark-mode) .yui-skin-sam tr.yui-dt-highlighted,
@@ -9929,7 +10175,8 @@ body.set-to-dark:not(.disable-dark-mode) p[style="color: red"],
 body.set-to-dark:not(.disable-dark-mode) div[style="color: red"],
 body.set-to-dark:not(.disable-dark-mode) .feedback-error,
 body.set-to-dark:not(.disable-dark-mode) .overdue-text,
-body.set-to-dark:not(.disable-dark-mode) .red-text {
+body.set-to-dark:not(.disable-dark-mode) .red-text,
+body.set-to-dark:not(.disable-dark-mode) .red {
     color: #f79797 !important
 }
 
@@ -10519,7 +10766,11 @@ body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav a.pds-is-a
     background-color: #00427c !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) .pds-is-secondary-open.pds-app-nav .pds-nav-primary.pds-app-nav .pds-nav-secondary.pds-app-nav, #container-frame.new #tools2 li span.comphelppopuptext, #container.new #tools2 li span.comphelppopuptext, #container-frame.new #tools2 li span div.comphelppopupHeader, #container.new #tools2 li span div.comphelppopupHeader {
+body.set-to-dark:not(.disable-dark-mode) .pds-is-secondary-open.pds-app-nav .pds-nav-primary.pds-app-nav .pds-nav-secondary.pds-app-nav, 
+body.set-to-dark:not(.disable-dark-mode) #container-frame.new #tools2 li span.comphelppopuptext, 
+body.set-to-dark:not(.disable-dark-mode) #container.new #tools2 li span.comphelppopuptext, 
+body.set-to-dark:not(.disable-dark-mode) #container-frame.new #tools2 li span div.comphelppopupHeader, 
+body.set-to-dark:not(.disable-dark-mode) #container.new #tools2 li span div.comphelppopupHeader {
     background-color: #52606D !important;
 }
 
@@ -10589,7 +10840,7 @@ body.set-to-dark:not(.disable-dark-mode) #ucsdSupport{display:none;}
 
 body.set-to-dark:not(.disable-dark-mode) .pvtAxisContainer, 
 body.set-to-dark:not(.disable-dark-mode) .pvtVals,
-body.set-to-dark:not(.disable-dark-mode) table.grid tr td:not(.th) {
+body.set-to-dark:not(.disable-dark-mode) table.grid tr:nth-child(even) td:not(.th) {
     background-color: #242f39 !important;
 }
 
@@ -10819,7 +11070,7 @@ body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-bdiv,
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-view,
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-hdiv {
     width: auto !important;
-    
+    max-width: calc(100% - 20px);
 }
 
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid:not(#gbox_teacherAccessSchoolsTable) {

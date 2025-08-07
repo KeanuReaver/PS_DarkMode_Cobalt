@@ -1,27 +1,18 @@
 <script>
     (function() {
-    try {
-        const darkKey = "ucsd_dark_mode";
-        const userPref = localStorage.getItem(darkKey);
-        const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const isDark = userPref === "1" || (userPref === null && systemPref);
-        if (isDark) {
-            document.documentElement.classList.add('set-to-dark');
+        try {
+            const darkKey = "ucsd_dark_mode";
+            const userPref = localStorage.getItem(darkKey);
+            const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const isDark = userPref === "1" || (userPref === null && systemPref);
+            if (isDark) {
+                document.documentElement.classList.add('set-to-dark');
+            }
+        } catch (e) {
+            console.warn("Failed to apply dark mode early:", e);
         }
-    } catch (e) {
-        console.warn("Failed to apply dark mode early:", e);
-    }
-})();
+    })();
 </script>
-
-<!-- Dark Mode Toggle Markup (only if not already present) -->
-<span id="darkModeToggleSpan" style="padding-right:20px; display:none;">
-    Dark:
-    <label class="student-dark-switch">
-        <input type="checkbox" id="darkModeChbx" name="darkModeChbx">
-        <span id="student-dark-slider"></span>
-    </label>
-</span>
 
 <style>
     .student-dark-switch {
@@ -111,10 +102,6 @@
 <script>
 $j(() => {
     const darkKey = "ucsd_dark_mode";
-    const toggleId = "#darkModeToggleSpan";
-
-    // Prevent inserting toggle multiple times
-    if ($j(toggleId).length === 1 && !$j(toggleId).is(":visible")) {
         const shouldDisableDarkMode =
             window.location.pathname.startsWith('/admin/reports/rcBuilder/') &&
             !window.location.pathname.startsWith('/admin/reports/rcBuilder/home');
@@ -154,27 +141,8 @@ $j(() => {
             $j("#darkModeChbx").prop("checked", isDark);
         }
 
-        // Move toggle into place if possible
-        const insertTargets = ["#currentscope", "#tools"];
-        for (const sel of insertTargets) {
-            const $target = $j(sel);
-            if ($target.length && !$target.find(toggleId).length) {
-                $target.prepend($j(toggleId));
-                break;
-            }
-        }
-
-        // Show toggle
-        $j(toggleId).show();
-
         // Apply dark mode state
         applyDarkMode();
-
-        // Debounced change handler
-        $j("#darkModeChbx").off("change.ucsd").on("change.ucsd", function () {
-            localStorage.setItem(darkKey, this.checked ? "1" : "0");
-            applyDarkMode();
-        });
 
         // React to system preference change
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
@@ -182,6 +150,6 @@ $j(() => {
                 applyDarkMode(); // only reapply if no user override
             }
         });
-    }
+    
 });
 </script>

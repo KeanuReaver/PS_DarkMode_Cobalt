@@ -1,0 +1,631 @@
+<style>
+    body.set-to-dark:not(.disable-dark-mode) {
+        color: #cbd2d9;
+    }
+    
+    body.set-to-dark:not(.disable-dark-mode) div.pds-app-switcher,
+    body.set-to-dark:not(.disable-dark-mode) #reporting-term-selector-button {
+        background-color: #323f48 !important;
+        color: #cbd2d9;
+    }
+    
+    body.set-to-dark:not(.disable-dark-mode) .pds-popover-header.pds-app-switcher {
+        background-color: #3e4c59
+    }
+    
+    body.set-to-dark:not(.disable-dark-mode) .tippy-box.popover-theme.pds-app-switcher-theme.pds-app-switcher .app-switcher-product-list.pds-app-switcher a.pds-app-switcher {
+        color: #cbd2d9;
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-chevron-left,
+    body.set-to-dark:not(.disable-dark-mode) .ps-chevron-right {
+        filter: brightness(2)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .onboarding-standards-trend .panel.panel-green .panel-footer {
+        background-color: #46464d
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) table tr:nth-child(1n),
+    body.set-to-dark:not(.disable-dark-mode) .single-standard-final-grade table.table>tbody>tr.grid-row th a.keypad-link,
+    body.set-to-dark:not(.disable-dark-mode) .single-standard-final-grade table.table>tbody>tr.grid-row td a.keypad-link {
+        background-color: #3e4c59
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #session-timeout-overlay {
+        filter: brightness(.5)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #session-timeout-dialog {
+        background: #1F2933;
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #session-timeout-content fieldset>div:nth-of-type(2n+1) {
+        background-color: #323f48
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #openDialogLink {
+        background: #323F48 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #openDialogLink:hover {
+        background: #3E4C59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .close .ps-close {
+        filter: brightness(1) !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) div.group-body div.row:nth-child(2n):not(.ps-form-separator) {
+        background-color: #323F48
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-form>div:not(.tab-wrapper):nth-child(2n):not(.ps-form-separator) {
+        background-color: #323F48 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-form>div:not(.tab-wrapper):nth-child(2n+1):not(.ps-form-separator),
+    body.set-to-dark:not(.disable-dark-mode) .btn-group .btn.btn-default {
+        background-color: #52606D !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .cke_dialog_footer_buttons a.cke_dialog_ui_button span {
+        color: black !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) a.cke_dialog_ui_button_cancel:hover {
+        background: #8b1941 !important;
+        filter: brightness(1.2) !important;
+        text-decoration: none !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) a.cke_dialog_ui_button_ok:hover {
+        background: #09863e !important;
+        filter: brightness(1.2) !important;
+        text-decoration: none !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .onboarding-anchor .ps-assignments-blue,
+    body.set-to-dark:not(.disable-dark-mode) .ps-info-inverse {
+        filter: brightness(2)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .traditionalGraph.small .gradesGroupScores.loaded .gradesAbove .graphContainer .gradeBar,
+    body.set-to-dark:not(.disable-dark-mode) .traditionalGraph.small .gradesGroupScores.loaded .gradesBelow .graphContainer .gradeBar {
+        background-color: #616E7C !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .rTermDistributionTable tr.selected th:first-child {
+        background-image: none
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .metric .ps-full-screen {
+        filter: brightness(2.5)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .metricsContainer .metric .metricCount {
+        background-color: #52606D;
+        color: #f5f7fa;
+        height: 28px
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .panel-title>a,
+    body.set-to-dark:not(.disable-dark-mode) .panel-title>small,
+    body.set-to-dark:not(.disable-dark-mode) .panel-title>.small,
+    body.set-to-dark:not(.disable-dark-mode) .panel-title>small>a,
+    body.set-to-dark:not(.disable-dark-mode) .panel-title>.small>a {
+        color: #cbd2d9 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .clickable-panel-heading h3 {
+        color: #ffdd9a
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-incomplete-inverse-blue {
+        filter: brightness(1.5)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridWidgetPagination ul li.active a {
+        background-color: #195f7d
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridWidgetPagination ul li a:hover {
+        background-color: #323F48
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) table th.highlight,
+    body.set-to-dark:not(.disable-dark-mode) table col.highlight,
+    body.set-to-dark:not(.disable-dark-mode) table tr.highlight,
+    body.set-to-dark:not(.disable-dark-mode) table tr:nth-child(even).highlight {
+        color: #ffdd9a
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .keypad-cell.highlight {
+        background-color: #52606D
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #modal-student-asset-dialog .ps-form:not(.read-only) .row {
+        background: #3E4C59
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-checkbox+label,
+    body.set-to-dark:not(.disable-dark-mode) .ps-checkbox-lg+label,
+    body.set-to-dark:not(.disable-dark-mode) .ps-checkbox-sm+label {
+        background: #616E7C !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-form .tab-pane>div:nth-child(even):not(.ps-form-separator),
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app #navbar-drawer .navbar-drawer-list>li:not(.active):nth-child(even).drawer-sub-list>.clearfix:not(.navbar-drawer-label) {
+        background-color: #323f48 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) ::-webkit-scrollbar {
+        background: #616E7C !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) ::-webkit-scrollbar-thumb {
+        background: #d3b77f !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) ::-webkit-scrollbar-corner {
+        background: #616E7C !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .cke_dialog_footer,
+    body.set-to-dark:not(.disable-dark-mode) footer,
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app #navbar-drawer .navbar-drawer-list>li:not(.active):nth-child(odd).drawer-sub-list>.clearfix:not(.navbar-drawer-label) {
+        background-color: #3E4C59
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .cke_dialog_title {
+        background-color: #3E4C59;
+        color: #cbd2d9
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) a.cke_dialog_ui_button_ok {
+        background: #09863e !important;
+        border: 1px solid #09863e !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) a.cke_dialog_ui_button {
+        background: #8b1941;
+        border: 1px solid #8b1941
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) a.cke_dialog_close_button,
+    body.set-to-dark:not(.disable-dark-mode) .cke_dialog a.cke_btn_locked,
+    body.set-to-dark:not(.disable-dark-mode) .cke_dialog a.cke_btn_reset {
+        filter: invert(1)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .btn-group>.btn-default.dropdown-toggle .ps-dropdown-chevron {
+        filter: brightness(1) !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-page-form div.form-group-body div.row:nth-child(odd):not(.ps-form-separator),
+    body.set-to-dark:not(.disable-dark-mode) .ps-form .tab-pane>div:nth-child(odd):not(.ps-form-separator) {
+        background-color: #3e4c59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-page-form div.form-group-body div.row:nth-child(even):not(.ps-form-separator) div.row,
+    body.set-to-dark:not(.disable-dark-mode) .ps-form .tab-pane>div:nth-child(even):not(.ps-form-separator) {
+        background-color: #323f48 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-page-form div.row:nth-child(odd):not(.ps-form-separator):not(.form-group-title) {
+        background-color: #3e4c59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-settings {
+        filter: brightness(2) !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .report-options div.row.header-row {
+        padding-bottom: 5px !important;
+        padding-top: 5px !important;
+        margin-bottom: inherit !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .btn-success {
+        background-color: #00427c !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #report-queue-link-button {
+        background: revert;
+        background-color: #589e81 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #report-queue-link-button:hover,
+    body.set-to-dark:not(.disable-dark-mode) .btn-success:hover {
+        filter: brightness(120%) !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .report-options .tab-pane>div:nth-child(even) {
+        background-color: #323F48 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .report-options div[data-ng-transclude] div.row:nth-child(odd) {
+        background-color: #3e4c59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .minimegamenu li.active {
+        background: #589e81 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .report-options div.row.header-row,
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms-container,
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms ul>li a,
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app .navbar-drawer-label {
+        background: #042d40 !important;
+        color: #cbd2d9 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms ul>li a#sidebar-charms-class:before,
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms ul>li a#sidebar-charms-grading:before,
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms ul>li a#sidebar-charms-students:before,
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms ul>li a#sidebar-charms-progress:before,
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms ul>li a#sidebar-charms-reports:before,
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms ul>li a#sidebar-charms-settings:before,
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms ul>li a#sidebar-charms-apps:before,
+    body.set-to-dark:not(.disable-dark-mode) .ps-revert {
+        filter: brightness(2)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms ul>li a:hover {
+        filter: brightness(1.2)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #traditional-distribution-ok-button:hover {
+        background: revert !important;
+        background-color: #72c5a2 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .studentStandardsTable tr.colorLevel_1,
+    body.set-to-dark:not(.disable-dark-mode) .studentStandardsTable tr.colorLevel_2,
+    body.set-to-dark:not(.disable-dark-mode) .studentStandardsTable tr.colorLevel_3,
+    body.set-to-dark:not(.disable-dark-mode) .studentStandardsTable tr.colorLevel_4,
+    body.set-to-dark:not(.disable-dark-mode) .studentStandardsTable tr.colorLevel_5 {
+        background-color: #3E4C59
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .report-options div[data-ng-transclude] div.row:nth-child(even) {
+        background-color: #323f48
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .rTermDistributionTable tr.selected {
+        background-color: #52606D
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .traditionalGraph .gradesGroupScores .footer button {
+        background: revert !important;
+        background-color: #eccd8e !important;
+        color: black !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .traditionalGraph .gradesGroupScores .footer button:hover {
+        background-color: #eccd8e !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .traditionalGraph {
+        background-color: #3e4c59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-backspace {
+        filter: brightness(2) !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .keypad-cell .exempt,
+    body.set-to-dark:not(.disable-dark-mode) .keypad-cell .exempt>var {
+        color: #e1a9ff !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .panel,
+    body.set-to-dark:not(.disable-dark-mode) .sticky-header,
+    body.set-to-dark:not(.disable-dark-mode) .ps-page-form div.form-group-body div.row:nth-child(even):not(.ps-form-separator),
+    body.set-to-dark:not(.disable-dark-mode) .cke_dialog_contents {
+        background-color: #1f2933
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .panel.panel-default .panel-heading {
+        background-color: #3e4c59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .panel.panel-default .panel-heading:hover {
+        background-color: #52606D !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app #navbar-drawer .navbar-drawer-list>li:not(.active):nth-child(even).drawer-sub-list:nth-child(even) {
+        background-color: #323F48 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) :root,
+    body.set-to-dark:not(.disable-dark-mode) .gridTable thead .metrics>th,
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable thead .metrics>th,
+    body.set-to-dark:not(.disable-dark-mode) .scrollable-table-container thead .metrics>th,
+    body.set-to-dark:not(.disable-dark-mode) .gridTable thead .metrics>td,
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable thead .metrics>td,
+    body.set-to-dark:not(.disable-dark-mode) .scrollable-table-container thead .metrics>td,
+    body.set-to-dark:not(.disable-dark-mode) .meta,
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable:not(.scrollable) tbody td,
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable:not(.scrollable) tbody th,
+    body.set-to-dark:not(.disable-dark-mode) .help-block,
+    body.set-to-dark:not(.disable-dark-mode) .ps-form legend {
+        color: #e4e7eB !important
+    }
+
+    /*body.set-to-dark:not(.disable-dark-mode) .dropdown-toggle {*/
+    /*    background: revert !important*/
+    /*}*/
+
+    body.set-to-dark:not(.disable-dark-mode) input,
+    body.set-to-dark:not(.disable-dark-mode) button,
+    body.set-to-dark:not(.disable-dark-mode) select,
+    body.set-to-dark:not(.disable-dark-mode) textarea,
+    /*body.set-to-dark:not(.disable-dark-mode) .dropdown-toggle,*/
+    body.set-to-dark:not(.disable-dark-mode) .nav-pills>li>a {
+        background: #52606d !important;
+        color: #e4e7eB !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .btn-default:active {
+        background: #52606D !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) textarea::placeholder,
+    body.set-to-dark:not(.disable-dark-mode) input::placeholder,
+    body.set-to-dark:not(.disable-dark-mode) select::placeholder,
+    body.set-to-dark:not(.disable-dark-mode) .dropdown-toggle::placeholder {
+        color: #e4e7eb !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) body,
+    body.set-to-dark:not(.disable-dark-mode) .modal-content {
+        color: #e4e7eB !important;
+        background-color: #1f2933 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) main {
+        background-color: #1f2933 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) table>thead>tr>th {
+        background: #195f7d !important;
+        color: #e4e7eb !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .content-selector {
+        background-color: #195f7d !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) table tr:nth-child(even) {
+        background-color: #323f48 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app #navbar-drawer span.drawer-term-link,
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app #navbar-drawer .settings>span {
+        color: #ffdd9a !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app #navbar-drawer a {
+        color: #ffdd9a
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app.pds-app-header-bar {
+        z-index: 1030;
+        background: linear-gradient(to right, #1F2933, #00427c) !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .dropdown-menu {
+        background-color: #1F2933 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .dropdown-menu>li>a {
+        color: #cbd2d9 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .dropdown-menu>li>a:focus,
+    body.set-to-dark:not(.disable-dark-mode) .dropdown-menu>li>a:hover .content-selector .reporting-term-selector .date-range,
+    body.set-to-dark:not(.disable-dark-mode) .dropdown-menu>li>a:focus .content-selector .reporting-term-selector .date-range {
+        filter: brightness(1.2) !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .dropdown-menu>li>a:hover {
+        background: #3e4c59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .dropdown-menu>.active>a,
+    body.set-to-dark:not(.disable-dark-mode) .dropdown-menu>.active>a:hover,
+    body.set-to-dark:not(.disable-dark-mode) .dropdown-menu>.active>a:focus {
+        background-color: #eccd8e !important;
+        color: black !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .content-selector .reporting-term-selector .date-range {
+        color: inherit
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) body a,
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms-drawer a,
+    body.set-to-dark:not(.disable-dark-mode) .keypad-link {
+        color: #ffdd9a
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable:not(.scrollable) tbody td {
+        background-color: #323f48 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms-drawer {
+        background-color: #3E4C59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms-drawer li.sidebar-charms-drawer-label {
+        background-color: #3E4C59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms-drawer div.sidebar-charms-drawer-label {
+        background-color: #3E4C59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms-drawer .student-drawer-control {
+        background-color: #3E4C59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app .navbar-nav.navbar-main>li>a,
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app .navbar-nav.navbar-main>li>a::placeholder {
+        background-color: #3E4C59 !important;
+        color: #cbd2d9 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-triangle-down-dark-blue,
+    body.set-to-dark:not(.disable-dark-mode) .ps-triangle-right-dark-blue,
+    body.set-to-dark:not(.disable-dark-mode) .ps-search-dark-blue,
+    body.set-to-dark:not(.disable-dark-mode) .ps-triangle-down,
+    body.set-to-dark:not(.disable-dark-mode) .ps-triangle-up,
+    body.set-to-dark:not(.disable-dark-mode) .ps-triangle-right,
+    body.set-to-dark:not(.disable-dark-mode) .ps-dropdown-chevron,
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms-drawer .sidebar-charms-drawer-search:before,
+    body.set-to-dark:not(.disable-dark-mode) .ps-district,
+    body.set-to-dark:not(.disable-dark-mode) .ps-all-classes-dark-blue,
+    body.set-to-dark:not(.disable-dark-mode) .ps-edit,
+    body.set-to-dark:not(.disable-dark-mode) .ui-datepicker-trigger::before,
+    body.set-to-dark:not(.disable-dark-mode) .ps-plus {
+        filter: brightness(4)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ui-datepicker .ui-datepicker-prev span,
+    body.set-to-dark:not(.disable-dark-mode) .ui-datepicker .ui-datepicker-next span {
+        filter: invert(1)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ui-datepicker .ui-datepicker-prev,
+    body.set-to-dark:not(.disable-dark-mode) .ui-datepicker .ui-datepicker-next {
+        background: #616e7c !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ui-datepicker-header,
+    body.set-to-dark:not(.disable-dark-mode) table.ui-datepicker-calendar {
+        background: #1f2933
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ui-datepicker-week-end .ui-state-default {
+        background-color: #616E7C
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) a:hover,
+    body.set-to-dark:not(.disable-dark-mode) .keypad-cell a:hover,
+    body.set-to-dark:not(.disable-dark-mode) .keypad-cell a:focus {
+        color: #72c5a2
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-check-green,
+    body.set-to-dark:not(.disable-dark-mode) .ps-close,
+    body.set-to-dark:not(.disable-dark-mode) .ps-info {
+        filter: brightness(3)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app a.button,
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app span.button {
+        background: black !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .nav-tabs>li.active>a {
+        color: black !important;
+        background-color: #72c5a2 !important;
+        border: none
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .ps-radio+label,
+    body.set-to-dark:not(.disable-dark-mode) .ps-radio-lg+label,
+    body.set-to-dark:not(.disable-dark-mode) .ps-radio-sm+label {
+        background: #52606d !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .meta-row-block {
+        color: #e4e7eB !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .nav-tabs>li>a,
+    body.set-to-dark:not(.disable-dark-mode) .nav-pills>li>a {
+        background-color: #616E7C !important;
+        color: #e4e7eB !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app #navbar-drawer {
+        background-color: #323f48 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app #navbar-drawer .navbar-drawer-list li.active {
+        background: linear-gradient(to right, #00427c 0, #00427c 50%, #3E4C59 75%)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app #navbar-drawer .navbar-drawer-list>li:not(.active):nth-child(even):not(.drawer-sub-list) {
+        background-color: #3E4C59
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app #navbar-drawer .navbar-drawer-list>li:not(.active):nth-child(odd):not(.drawer-sub-list) {
+        background-color: #616E7C
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) label,
+    body.set-to-dark:not(.disable-dark-mode) .course-grade-details .attendance-counts,
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable thead th:not(.highlight),
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable thead td:not(.highlight) {
+        color: #cbd2d9 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #sidebar-charms-drawer .sidebar-charms-drawer-list li.active {
+        background: linear-gradient(to right, #00427c 0, #00427c 50%, #3E4C59 75%)
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridWidgetPagination {
+        text-align: center;
+        background-color: #3E4C59
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .column-summary .column-summary-title {
+        color: #cbd2d9 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .nav-tabs>li.active>a,
+    body.set-to-dark:not(.disable-dark-mode) .nav-tabs>li.active>a:hover,
+    body.set-to-dark:not(.disable-dark-mode) .nav-tabs>li.active>a:focus,
+    body.set-to-dark:not(.disable-dark-mode) .nav-pills>li.active>a,
+    body.set-to-dark:not(.disable-dark-mode) .nav-pills>li.active>a:hover,
+    body.set-to-dark:not(.disable-dark-mode) .nav-pills>li.active>a:focus {
+        background: #72c5a2 !important;
+        color: black !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .nav-tabs>li>a:hover,
+    body.set-to-dark:not(.disable-dark-mode) .nav-pills>li>a:hover,
+    body.set-to-dark:not(.disable-dark-mode) .nav-pills>li>a:focus,
+    body.set-to-dark:not(.disable-dark-mode) .btn-default:hover {
+        filter: brightness(1.05) !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) .student-selector .students-row {
+        background: #3E4C59 !important
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) table>thead>tr>th,
+    body.set-to-dark:not(.disable-dark-mode) table>thead>tr>td {
+        background: #195f7d !important
+    }
+</style>
+<script>
+    (function() {
+    try {
+        const darkKey = "ucsd_dark_mode";
+        const userPref = localStorage.getItem(darkKey);
+        const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = userPref === "1" || (userPref === null && systemPref);
+        if (isDark) {
+            document.documentElement.classList.add('set-to-dark');
+            document.body.classList.toggle("set-to-dark", isDark);
+            document.body.classList.toggle("set-to-light", !isDark);
+        }
+    } catch (e) {
+        console.warn("Failed to apply dark mode early:", e);
+    }
+})();
+</script>
