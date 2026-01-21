@@ -753,7 +753,7 @@
         const PARENT_ID = 'custom-ucsd-ptp-toggles';
         const TOGGLE_WRAPPER_ID = 'darkModeToggleSpan';
         const HEADER_SEL = '.pds-app-header-bar';
-        const RIGHT_OFFSET_PX = 250;
+        const RIGHT_OFFSET_PX = 420;
         const TOP_GAP_PX = 6;
 
         function ensureParent() {
@@ -869,6 +869,241 @@
         });
         bodyObserver.observe(document.body, { childList: true, subtree: true });
 
+        window.addEventListener('resize', positionParent, { passive: true });
+        window.addEventListener('scroll', positionParent, { passive: true });
+    })();
+</script>
+
+<!-- Start Blur Toggle-->
+
+<style id="ucsd-ptp-blur-toggle-styles">
+    #custom-ucsd-ptp-toggles {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 1029;
+        display: inline-flex;
+        gap: 12px;
+        align-items: center;
+        pointer-events: auto;
+        height: 20px;
+        top: auto;
+        right: auto;
+        margin: 5px;
+    }
+    .student-blur-switch {
+        position: relative;
+        display: inline-flex;
+        width: 50px;
+        height: 24px;
+        vertical-align: middle;
+        line-height: 1.42857143;
+    }
+    .student-blur-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    #student-blur-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: red;
+        transition: 0.4s;
+        border-radius: 24px;
+        width: 50px;
+        height: 20px;
+    }
+    #student-blur-slider::after {
+        content: "Off";
+        position: absolute;
+        left: 26px;
+        top: 1px;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        pointer-events: none;
+        transition: background-color 0.4s ease;
+    }
+    #student-blur-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+        z-index: 100;
+    }
+    
+    .blur-label {
+        background: none;
+        color: black !important;
+    }
+    
+    body.set-to-dark:not(.disable-dark-mode) .blur-label { color: #cbd2d9 !important; }
+    .student-blur-switch input:checked + #student-blur-slider {
+        background-color: green;
+    }
+    .student-blur-switch input:checked + #student-blur-slider:before {
+        transform: translateX(30px);
+    }
+    .student-blur-switch input:checked + #student-blur-slider::after {
+        content: "On";
+        left: 8px !important;
+    }
+
+    body.set-to-dark:not(.disable-dark-mode) #student-blur-slider { background-color: #444; }
+    body.set-to-dark:not(.disable-dark-mode) .student-blur-switch input:checked + #student-blur-slider { background-color: #2ecc71; }
+    body.set-to-dark:not(.disable-dark-mode) #student-blur-slider:before { background-color: #fff; }
+    body.set-to-dark:not(.disable-dark-mode) .student-blur-switch input:checked + #student-blur-slider::after  { color: black; }
+
+    body:not(.remove-opening-blur):not(.set-to-dark):not(.set-to-light):not(.disable-dark-mode):not(.psteacher) {
+        filter: blur(6px) opacity(0);
+    }
+    .remove-opening-blur { filter: none; }
+    .blur-text { filter: blur(6px); }
+    
+    body.blur-active a[href*="/admin/students/home.html"],
+    body.blur-active [name*="UF-"],
+    body.blur-active [name*="EF-"],
+    body.blur-active [name*="student"],
+    body.blur-active .dropDownListContainer,
+    body.blur-active #Student_Name_Type_Ahead,
+    body.blur-active #students_picker_student_context,
+    body.blur-active #studentsResults,
+    body.blur-active input[type="text"],
+    body.blur-active td.ng-binding,
+    body.blur-active img,
+    body.blur-active .sensitive,
+    body.blur-active #quickLookup td.table-element-text-align-start a,
+    body.blur-active #multiDayAttendanceGrid .simpleTextBox,
+    body.blur-active #contactsTable a,
+    body.blur-active #contactsTable td[id^=horizontal-],
+    body.blur-active.teacher_menu_options:not(.psTeachers) td,
+    body.blur-active .ui-dialog-titlebar span,
+    body.blur-active .pssc-studentNameSpan,
+    body.blur-active .student-name,
+    body.blur-active img[src*="/admin/stpthumb/"] {
+        filter: blur(6px) !important;
+    }
+</style>
+
+<script>
+    (function () {
+        const BLUR_KEY = "studentblurr";
+        const PARENT_ID = 'custom-ucsd-ptp-toggles';
+        const TOGGLE_WRAPPER_ID = 'blurStuSpan';
+        const HEADER_SEL = '.pds-app-header-bar';
+        const RIGHT_OFFSET_PX = 420;
+        const TOP_GAP_PX = 6;
+
+        function ensureParent() {
+            let parent = document.getElementById(PARENT_ID);
+            if (!parent) {
+                parent = document.createElement('div');
+                parent.id = PARENT_ID;
+                parent.setAttribute('aria-live', 'polite');
+                document.body.appendChild(parent);
+            }
+            return parent;
+        }
+
+        function positionParent() {
+            function isMobileView() {
+                return (
+                    window.innerWidth <= 768 ||
+                    window.matchMedia('(pointer: coarse)').matches 
+                );
+            }
+            const parent = ensureParent();
+            if (!isMobileView()) {
+                
+                const header = document.querySelector(HEADER_SEL);
+                let top = 10;
+                if (header) {
+                    const rect = header.getBoundingClientRect();
+                    top = Math.max(0, rect.top + rect.height + TOP_GAP_PX);
+                    top += window.scrollY || 0;
+                }
+                parent.style.top = `${top}px`;
+                parent.style.right = `${RIGHT_OFFSET_PX}px`;
+                parent.style.left = 'auto';
+            } else {
+                parent.removeAttribute('style');
+            }
+        }
+
+        function applyBlur() {
+            const isBlurred = localStorage.getItem(BLUR_KEY) === "1";
+            const checkbox = document.getElementById("blurStuChbx");
+            if (checkbox) checkbox.checked = isBlurred;
+
+            (isBlurred)
+                ? document.body.classList.add("blur-active")
+                : document.body.classList.remove("blur-active");
+            document.body.classList.add("remove-opening-blur");
+        }
+
+        function ensureBlurToggle() {
+            if (document.getElementById(TOGGLE_WRAPPER_ID)) return;
+
+            const span = document.createElement('span');
+            span.id = TOGGLE_WRAPPER_ID;
+            span.className = 'ucsd-chip';
+            span.innerHTML = `
+                <span class="label blur-label">Blur:</span>
+                <label class="student-blur-switch" aria-live="polite">
+                    <input type="checkbox" id="blurStuChbx" name="blurStuChbx" aria-pressed="false" aria-label="Blur turned off">
+                    <span id="student-blur-slider"></span>
+                </label>
+            `;
+
+            ensureParent().appendChild(span);
+
+            const checkbox = span.querySelector('#blurStuChbx');
+
+            function applyAndSave(next) {
+                localStorage.setItem(BLUR_KEY, next ? "1" : "0");
+                applyBlur();
+                checkbox.setAttribute('aria-pressed', String(next));
+                checkbox.setAttribute('aria-label', next ? 'Blur turned on' : 'Blur turned off');
+            }
+
+            applyBlur();
+
+            checkbox.addEventListener('change', () => {
+                applyAndSave(checkbox.checked);
+            });
+        }
+
+        function boot() {
+            ensureParent();
+            ensureBlurToggle();
+            positionParent();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', boot);
+        } else {
+            boot();
+        }
+
+        const headerObserver = new MutationObserver(positionParent);
+        const bodyObserver = new MutationObserver(() => {
+            const header = document.querySelector(HEADER_SEL);
+            if (header) {
+                headerObserver.disconnect();
+                headerObserver.observe(header, { attributes: true, childList: true, subtree: true });
+                positionParent();
+            }
+        });
+        bodyObserver.observe(document.body, { childList: true, subtree: true });
         window.addEventListener('resize', positionParent, { passive: true });
         window.addEventListener('scroll', positionParent, { passive: true });
     })();

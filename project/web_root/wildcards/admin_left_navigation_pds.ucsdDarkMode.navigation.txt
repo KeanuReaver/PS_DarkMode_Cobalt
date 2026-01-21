@@ -10,25 +10,38 @@
         filter: brightness(1.2);
     }
     
-    body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-nav-category.pds-app-nav a.pds-app-nav, .pds-nav-primary.pds-app-nav .pds-nav-close.pds-app-nav a.pds-app-nav, .pds-nav-primary.pds-app-nav ul.pds-app-nav a.pds-app-nav, .pds-nav-secondary.pds-app-nav .pds-nav-category.pds-app-nav a.pds-app-nav, .pds-nav-secondary.pds-app-nav .pds-nav-close.pds-app-nav a.pds-app-nav, .pds-nav-secondary.pds-app-nav ul.pds-app-nav a.pds-app-nav, #container-frame.new #tools2 li span div.comphelppopupHeader, #container.new #tools2 li span div.comphelppopupHeader {
+    body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-nav-category.pds-app-nav a.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-nav-close.pds-app-nav a.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav ul.pds-app-nav a.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) .pds-nav-secondary.pds-app-nav .pds-nav-category.pds-app-nav a.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) .pds-nav-secondary.pds-app-nav .pds-nav-close.pds-app-nav a.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) .pds-nav-secondary.pds-app-nav ul.pds-app-nav a.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) #container-frame.new #tools2 li span div.comphelppopupHeader, 
+    body.set-to-dark:not(.disable-dark-mode) #container.new #tools2 li span div.comphelppopupHeader {
         color: #cbd2d9;
     }
     
     body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-primary-nav-link.pds-app-nav a.pds-app-nav:focus, .pds-nav-primary.pds-app-nav .pds-primary-nav-link.pds-app-nav a.pds-app-nav:hover {
         background-color: #52606D !important;
     }
-    body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-primary-nav-link.pds-app-nav a.pds-app-nav:focus pds-icon.pds-app-nav svg.pds-app-nav, .pds-nav-primary.pds-app-nav .pds-primary-nav-link.pds-app-nav a.pds-app-nav:hover pds-icon.pds-app-nav svg.pds-app-nav {
+    body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-primary-nav-link.pds-app-nav a.pds-app-nav:focus pds-icon.pds-app-nav svg.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-primary-nav-link.pds-app-nav a.pds-app-nav:hover pds-icon.pds-app-nav svg.pds-app-nav {
         fill: #eccd8e;
     }
     
-    body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-primary-nav-link.pds-app-nav a.pds-is-selected.pds-app-nav:focus pds-icon.pds-app-nav svg.pds-app-nav, .pds-nav-primary.pds-app-nav .pds-primary-nav-link.pds-app-nav a.pds-is-selected.pds-app-nav:hover pds-icon.pds-app-nav svg.pds-app-nav {
+    body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-primary-nav-link.pds-app-nav a.pds-is-selected.pds-app-nav:focus pds-icon.pds-app-nav svg.pds-app-nav, 
+    .pds-nav-primary.pds-app-nav .pds-primary-nav-link.pds-app-nav a.pds-is-selected.pds-app-nav:hover pds-icon.pds-app-nav svg.pds-app-nav {
         fill: #eccd8e !important;
     }
     body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav a.pds-is-active.pds-app-nav {
         background-color: #00427c;
     }
     
-    body.set-to-dark:not(.disable-dark-mode) .pds-is-secondary-open.pds-app-nav .pds-nav-primary.pds-app-nav .pds-nav-secondary.pds-app-nav, #container-frame.new #tools2 li span.comphelppopuptext, #container.new #tools2 li span.comphelppopuptext, #container-frame.new #tools2 li span div.comphelppopupHeader, #container.new #tools2 li span div.comphelppopupHeader {
+    body.set-to-dark:not(.disable-dark-mode) .pds-is-secondary-open.pds-app-nav .pds-nav-primary.pds-app-nav .pds-nav-secondary.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) #container-frame.new #tools2 li span.comphelppopuptext, 
+    body.set-to-dark:not(.disable-dark-mode) #container.new #tools2 li span.comphelppopuptext, 
+    body.set-to-dark:not(.disable-dark-mode) #container-frame.new #tools2 li span div.comphelppopupHeader, 
+    body.set-to-dark:not(.disable-dark-mode) #container.new #tools2 li span div.comphelppopupHeader {
         background-color: #52606D;
     }
     
@@ -68,7 +81,11 @@
         background: #d3b77f
     }
     
-    body.set-to-dark:not(.disable-dark-mode) .pds-app-nav-content.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav a.pds-is-active.pds-app-nav, .pds-app-nav-content.pds-app-nav .pds-app-nav-mobile-menu-secondary-plus.pds-app-nav a.pds-is-active.pds-app-nav, .pds-app-nav-content.pds-four-tier-support.pds-app-nav .pds-nav-primary.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav a.pds-is-active.pds-app-nav, .pds-app-nav-content.pds-four-tier-support.pds-app-nav .pds-nav-primary.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav .pds-app-nav-secondary-tier.pds-app-nav .pds-app-nav-secondary-tier-list-container.pds-app-nav a.pds-is-selected.pds-is-active.pds-app-nav, .pds-nav-primary.pds-app-nav .pds-nav-secondary.pds-app-nav ul.pds-app-nav a.pds-is-active.pds-app-nav {
+    body.set-to-dark:not(.disable-dark-mode) .pds-app-nav-content.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav a.pds-is-active.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) .pds-app-nav-content.pds-app-nav .pds-app-nav-mobile-menu-secondary-plus.pds-app-nav a.pds-is-active.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) .pds-app-nav-content.pds-four-tier-support.pds-app-nav .pds-nav-primary.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav a.pds-is-active.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) .pds-app-nav-content.pds-four-tier-support.pds-app-nav .pds-nav-primary.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav .pds-app-nav-secondary-tier.pds-app-nav .pds-app-nav-secondary-tier-list-container.pds-app-nav a.pds-is-selected.pds-is-active.pds-app-nav, 
+    body.set-to-dark:not(.disable-dark-mode) .pds-nav-primary.pds-app-nav .pds-nav-secondary.pds-app-nav ul.pds-app-nav a.pds-is-active.pds-app-nav {
         background-color: rgb(0, 66, 124);
     }
 

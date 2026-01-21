@@ -24,6 +24,10 @@
 </span>
 
 <style>
+    body:not(.remove-opening-blur):not(.set-to-dark):not(.set-to-light):not(.disable-dark-mode):not(.psteacher) {
+        filter: blur(6px) opacity(0);
+        /*transition: filter 300ms ease;*/
+    }
     .student-dark-switch {
         position: relative;
         display: inline-flex;
@@ -36,7 +40,9 @@
         width: 0;
         height: 0;
     }
-    #student-dark-slider {
+    
+    #darkModeToggleSpan .student-dark-switch #student-dark-slider {
+        margin: 0;
         position: absolute;
         cursor: pointer;
         top: 0;
@@ -50,10 +56,10 @@
         height: 20px;
     }
     
-    #student-dark-slider::after {
+    #darkModeToggleSpan .student-dark-switch #student-dark-slider::after {
         content: "Off";
         position: absolute;
-        left: 26px;
+        left: 21px;
         top: 1px;
         color: white;
         font-size: 12px;
@@ -61,7 +67,7 @@
         pointer-events: none;
         transition: background-color 0.4s ease;
     }
-    #student-dark-slider:before {
+    #darkModeToggleSpan .student-dark-switch #student-dark-slider:before {
         position: absolute;
         content: "";
         height: 16px;
@@ -73,14 +79,14 @@
         border-radius: 50%;
         z-index: 100;
     }
-    .student-dark-switch input:checked + #student-dark-slider {
+    #darkModeToggleSpan .student-dark-switch input:checked + #student-dark-slider {
         background-color: green;
     }
-    .student-dark-switch input:checked + #student-dark-slider:before {
+    #darkModeToggleSpan .student-dark-switch input:checked + #student-dark-slider:before {
         transform: translateX(30px);
     }
     
-    .student-dark-switch input:checked + #student-dark-slider::after {
+    #darkModeToggleSpan .student-dark-switch input:checked + #student-dark-slider::after {
         content: "On";
         color: black;
         left: 8px !important;
@@ -100,7 +106,7 @@
     body.set-to-dark:not(.disable-dark-mode) #student-dark-slider {
         background-color: #444;
     }
-    body.set-to-dark:not(.disable-dark-mode) .student-dark-switch input:checked + #student-dark-slider {
+    body.set-to-dark:not(.disable-dark-mode) #darkModeToggleSpan .student-dark-switch input:checked + #student-dark-slider {
         background-color: #2ecc71;
     }
     body.set-to-dark:not(.disable-dark-mode) #student-dark-slider:before {
@@ -110,51 +116,81 @@
 
 <script>
 $j(() => {
-    const darkKey = "ucsd_dark_mode";
+    const DARK_KEY = "ucsd_dark_mode";
     const toggleId = "#darkModeToggleSpan";
 
-    // Prevent inserting toggle multiple times
-    if ($j(toggleId).length === 1 && !$j(toggleId).is(":visible")) {
-        const shouldDisableDarkMode =
-            window.location.pathname.startsWith('/admin/reports/rcBuilder/') &&
-            !window.location.pathname.startsWith('/admin/reports/rcBuilder/home');
+    // --- helpers ---
+    function wantsDark() {
+        const userPref = localStorage.getItem(DARK_KEY); // "1", "0", or null
+        const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        return userPref === "1" || (userPref === null && systemPref);
+    }
 
-        if (shouldDisableDarkMode) {
-            $j("body").addClass("disable-dark-mode");
+    function applyDarkToDoc(doc, isDark) {
+        try {
+            const html = doc.documentElement;
+            const body = doc.body;
+            if (!html || !body) return;
 
-            $j("iframe").each(function () {
-                const iframe = this;
-                $j(iframe).on("load", function () {
-                    try {
-                        const iframeBody = $j(iframe).contents().find("body");
-                        iframeBody.addClass("disable-dark-mode");
-                    } catch (e) {
-                        console.warn("Could not access iframe:", iframe);
-                    }
-                });
+            body.classList.toggle("set-to-dark", isDark);
+            body.classList.toggle("set-to-light", !isDark);
+            html.classList.toggle("set-to-dark", isDark);
+            html.classList.toggle("set-to-light", !isDark);
+        } catch (e) {
+            // cross-origin or inaccessible — ignore
+        }
+    }
 
-                if (iframe.contentDocument?.readyState === "complete") {
-                    try {
-                        const iframeBody = $j(iframe).contents().find("body");
-                        iframeBody.addClass("disable-dark-mode");
-                    } catch (e) {
-                        console.warn("Access denied to iframe body:", iframe);
-                    }
-                }
+    function forEachSameOriginFrame(win, cb) {
+        // apply to current document
+        cb(win.document);
+
+        // recurse into same-origin frames
+        for (let i = 0; i < win.frames.length; i++) {
+            const f = win.frames[i];
+            try {
+                // access .document to test same-origin
+                void f.document;
+                forEachSameOriginFrame(f, cb);
+            } catch (e) {
+                // cross-origin — skip
+            }
+        }
+    }
+
+    function applyDarkEverywhere() {
+        const isDark = wantsDark();
+        forEachSameOriginFrame(window.top || window, (doc) => applyDarkToDoc(doc, isDark));
+        // keep the checkbox in sync in this top document (others don't have the toggle)
+        $j("#darkModeChbx").prop("checked", isDark);
+    }
+
+    // --- one-off path where dark mode should be disabled ---
+    const shouldDisableDarkMode =
+        window.location.pathname.startsWith("/admin/reports/rcBuilder/") &&
+        !window.location.pathname.startsWith("/admin/reports/rcBuilder/home");
+
+    if (shouldDisableDarkMode) {
+        $j("body").addClass("disable-dark-mode");
+
+        // add the class to same-origin iframes too
+        $j("iframe").each(function () {
+            const iframe = this;
+            $j(iframe).on("load", function () {
+                try {
+                    $j(iframe).contents().find("body").addClass("disable-dark-mode");
+                } catch (e) {}
             });
-        }
+            try {
+                if (iframe.contentDocument?.readyState === "complete") {
+                    $j(iframe).contents().find("body").addClass("disable-dark-mode");
+                }
+            } catch (e) {}
+        });
+    }
 
-        function applyDarkMode() {
-            const userPref = localStorage.getItem(darkKey); // "1", "0", or null
-            const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            const isDark = userPref === "1" || (userPref === null && systemPref);
-
-            $j("body").toggleClass("set-to-dark", isDark);
-            $j("body").toggleClass("set-to-light", !isDark);
-            $j("#darkModeChbx").prop("checked", isDark);
-        }
-
-        // Move toggle into place if possible
+    // --- place toggle once ---
+    if ($j(toggleId).length === 1 && !$j(toggleId).is(":visible")) {
         const insertTargets = ["#currentscope", "#tools"];
         for (const sel of insertTargets) {
             const $target = $j(sel);
@@ -163,25 +199,61 @@ $j(() => {
                 break;
             }
         }
-
-        // Show toggle
         $j(toggleId).show();
-
-        // Apply dark mode state
-        applyDarkMode();
-
-        // Debounced change handler
-        $j("#darkModeChbx").off("change.ucsd").on("change.ucsd", function () {
-            localStorage.setItem(darkKey, this.checked ? "1" : "0");
-            applyDarkMode();
-        });
-
-        // React to system preference change
-        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-            if (localStorage.getItem(darkKey) === null) {
-                applyDarkMode(); // only reapply if no user override
-            }
-        });
     }
+
+    // --- initial apply across all same-origin frames ---
+    applyDarkEverywhere();
+
+    // --- toggle handler updates storage and reapplies everywhere ---
+    $j("#darkModeChbx").off("change.ucsd").on("change.ucsd", function () {
+        localStorage.setItem(DARK_KEY, this.checked ? "1" : "0");
+        applyDarkEverywhere();
+    });
+
+    // --- react to system pref changes if no user override ---
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    mq.addEventListener("change", () => {
+        if (localStorage.getItem(DARK_KEY) === null) {
+            applyDarkEverywhere();
+        }
+    });
+
+    // --- handle iframes added later (and on their load) ---
+    const observer = new MutationObserver((muts) => {
+        muts.forEach((m) => {
+            m.addedNodes && m.addedNodes.forEach((node) => {
+                if (node.tagName === "IFRAME" && node.id !== 'vmaDocumentBlob') {
+                    const iframe = node;
+                    // reduce flash until we apply classes
+                    const prevVis = iframe.style.visibility || 'visible';
+                    iframe.style.visibility = "hidden";
+                    $j(iframe).on("load", function () {
+                        try {
+                            applyDarkToDoc(iframe.contentDocument, wantsDark());
+                            if (shouldDisableDarkMode) {
+                                $j(iframe).contents().find("body").addClass("disable-dark-mode");
+                            }
+                        } catch (e) {}
+                        iframe.style.visibility = prevVis || "";
+                    });
+
+                    // if already loaded
+                    try {
+                        if (iframe.contentDocument?.readyState === "complete") {
+                            applyDarkToDoc(iframe.contentDocument, wantsDark());
+                            if (shouldDisableDarkMode) {
+                                $j(iframe).contents().find("body").addClass("disable-dark-mode");
+                            }
+                            iframe.style.visibility = prevVis || "";
+                        }
+                    } catch (e) {
+                        iframe.style.visibility = prevVis || "";
+                    }
+                }
+            });
+        });
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
 });
 </script>
