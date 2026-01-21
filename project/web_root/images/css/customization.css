@@ -13,6 +13,11 @@ body {
     min-height: 100%;
 }
 
+body:not(.remove-opening-blur):not(.set-to-dark):not(.set-to-light):not(.disable-dark-mode):not(.psteacher) {
+    /*filter: blur(6px) opacity(0);*/
+    /*transition: filter 300ms ease;*/
+}
+
 html.set-to-light {
     background: white !important;
     background-color: white !important;
@@ -23,16 +28,16 @@ html.set-to-dark {
     background: #1F2933;
 }
 
-@media screen and (min-width: 769px) {
-    body:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container.new:not(.pds) {
-        grid-template-columns: 115px 90px auto;
-    }
-}
+/*@media screen and (min-width: 769px) {*/
+/*    body:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav):not(.psteacher) #container.new:not(.pds) {*/
+/*        grid-template-columns: 115px 90px auto;*/
+/*    }*/
+/*}*/
 
 @media screen and (min-width: 769px) and (prefers-color-scheme: dark) {
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #nav-main,
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #header,
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #content-main {
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #nav-main,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #header,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #content-main {
         background-color: #242f39;
         background-image: none;
         color: #cbd2d9;
@@ -40,9 +45,9 @@ html.set-to-dark {
 }
 
 @media screen and (min-width: 769px) and (prefers-color-scheme: light) {
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #nav-main,
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #header, 
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #content-main {
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #nav-main,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #header, 
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #content-main {
         background-color: white;
         color: black;
     }
@@ -63,15 +68,15 @@ html.set-to-dark {
         background: #1F2933;
     }
     
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.frameMenu) {
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.frameMenu):not(.psteacher):not(.background-image-none) {
         background-color: #1F2933;
         background-image: none;
         color: #cbd2d9;
     }
     
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #nav-main,
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #header,
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container-frame.pds:not(.pds-left-nav).details_view #content-main {
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #nav-main,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #header,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav):not(.psteacher) #container-frame.pds:not(.pds-left-nav).details_view #content-main {
         background-color: #242f39;
         background-image: none;
         color: #cbd2d9;
@@ -91,6 +96,10 @@ ul.tabs li a:focus-visible {
     margin-right: 5px;
 }
 
+body.set-to-light #content-main ul.tabs:not(.shown_tabs) {
+    background-color: transparent !important;
+}
+
 tr:focus-visible, button:focus-visible {
     outline: 1px solid blue !important;
 }
@@ -107,18 +116,18 @@ body.set-to-dark:not(.disable-dark-mode) {
     background-color: white;
 }
 
-body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light)  #printLink:not(#nav-main):not(#header),
-body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light)  #printLink img:not(#nav-main):not(#header),
-body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) .dontPrint a:not(#nav-main):not(#header),
-body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) .dontPrint button:not(#nav-main):not(#header) {
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher)  #printLink:not(#nav-main):not(#header),
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher)  #printLink img:not(#nav-main):not(#header),
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) .dontPrint a:not(#nav-main):not(#header),
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) .dontPrint button:not(#nav-main):not(#header) {
     background-color: #004890;
     color: white;
 }
 
-body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light)  #printLink:not(#nav-main):not(#header):hover,
-body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light)  #printLink:not(#nav-main):not(#header):hover img:not(#nav-main):not(#header),
-body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) .dontPrint a:not(#nav-main):not(#header):hover,
-body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) .dontPrint button:not(#nav-main):not(#header):hover {
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher)  #printLink:not(#nav-main):not(#header):hover,
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher)  #printLink:not(#nav-main):not(#header):hover img:not(#nav-main):not(#header),
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) .dontPrint a:not(#nav-main):not(#header):hover,
+body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) .dontPrint button:not(#nav-main):not(#header):hover {
     background-color: #009044
 }
 
@@ -136,29 +145,29 @@ body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) .dontPrint but
         background-color: #1F2933;
         background: #1F2933;
     }
-    body {
+    body:not(.psteacher) {
         background-color: white !important;
         
     }
     
-    body.set-to-dark:not(.disable-dark-mode) {
+    body.set-to-dark:not(.disable-dark-mode):not(.psteacher) {
         background-color: #1F2933;
     }
     
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) {
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) {
         background-color: white;
         color: black;
         
     }
     
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #nav-main,
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #header, 
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) #content-main {
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #nav-main,
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #header, 
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) #content-main {
         background-color: white;
         color: black;
     }
     
-    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light) *:not(#nav-main):not(#header) {
+    body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher) *:not(#nav-main):not(#header) {
         background-color: white;
         color: black;
     }
@@ -185,6 +194,10 @@ h3.collapsed,
 h4.collapsed, 
 h5.collapsed {
     margin-right: 20px;
+}
+
+.ui-dialog.ui-widget.ui-widget-content.ui-front.drawerPanel.east.expanded {
+    width: auto !important;
 }
 
 /* Logo */
@@ -5046,6 +5059,13 @@ form.visionScreeningDrawer div.middle-div {
     body:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container-frame.pds:not(.pds-left-nav).details_view #details-view-nav .pds-vertical-tabs>li>a {
         color: #333333
     }
+    
+    body.set-to-dark:not(.disable-dark-mode):not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container-frame.pds:not(.pds-left-nav).details_view #details-view-nav .pds-vertical-tabs > li > details > summary:hover,
+    body.set-to-dark:not(.disable-dark-mode):not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container-frame.pds:not(.pds-left-nav).details_view #details-view-nav .pds-vertical-tabs > li > details > summary:focus,
+    body.set-to-dark:not(.disable-dark-mode):not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container-frame.pds:not(.pds-left-nav).details_view #details-view-nav .pds-vertical-tabs > li > a:hover, 
+    body.set-to-dark:not(.disable-dark-mode):not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container-frame.pds:not(.pds-left-nav).details_view #details-view-nav .pds-vertical-tabs > li > a:focus{
+        background-color: #616E7C !important;
+    }
 }
 
 body .student_details #openPowersearchModal {
@@ -8095,6 +8115,14 @@ body.set-to-dark:not(.disable-dark-mode) #addCategoryButton.fav-button span {
     fill: #cbd2d9;
 }
 
+body.set-to-dark:not(.disable-dark-mode) .form.editable #formcontainer .element.dependent {
+    border-color: rgb(0, 255, 135);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgb(0, 255, 159);
+    outline: 0 none;
+    border-radius: 6px;
+    background-color: #0d7b52;
+}
+
 body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-icon,
 body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-button .neon-button.neon-2_10_0-button-utility:focus-visible neon-2_10_0-icon,
 body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-button .neon-button.neon-2_10_0-button-utility:hover neon-2_10_0-icon {
@@ -8422,6 +8450,7 @@ body.set-to-dark:not(.disable-dark-mode) li.ui-tabs-selected,
 body.set-to-dark:not(.disable-dark-mode) div.tabs ul.ui-tabs-nav li.ui-state-active:hover,
 body.set-to-dark:not(.disable-dark-mode) .ui-tabs .ui-tabs-nav li.ui-tabs-active,
 body.set-to-dark:not(.disable-dark-mode) ul.tabs li.selected>a,
+body.set-to-dark:not(.disable-dark-mode) ul.tabs li.selected>a[role="tab"],
 body.set-to-dark:not(.disable-dark-mode) li.ui-tabs-selected>a,
 body.set-to-dark:not(.disable-dark-mode) div.tabs ul.ui-tabs-nav li.ui-state-active:hover>a,
 body.set-to-dark:not(.disable-dark-mode) .ui-tabs .ui-tabs-nav li.ui-tabs-active>a {
@@ -8439,14 +8468,49 @@ body.set-to-dark:not(.disable-dark-mode) .ui-tabs .ui-tabs-nav li.ui-tabs-active
 
 body.set-to-dark:not(.disable-dark-mode) ul#nav-secondary.shown_tabs li.selected,
 body.set-to-dark:not(.disable-dark-mode) #nav-secondary .selected,
-body.set-to-dark:not(.disable-dark-mode) .shown_tabs .selected {
+body.set-to-dark:not(.disable-dark-mode) .shown_tabs .selected,
+body.set-to-dark:not(.disable-dark-mode) .tabs .selected {
     border-top: 2pt solid white;
 }
 
 body.set-to-dark:not(.disable-dark-mode) #container-frame.new .dropDownList .second-line,
 body.set-to-dark:not(.disable-dark-mode) #container.new .dropDownList .second-line,
 body.set-to-dark:not(.disable-dark-mode) span[style="color:gray;"],
-body.set-to-dark:not(.disable-dark-mode) div[style="color:black;cursor:pointer;"], .pds-scope, .pds-scope .class-block, .pds-scope .pds-app-nav-content, .pds-scope .pds-app-switcher-content, .pds-scope .pds-calendar-days, .pds-scope .pds-calendar-selectors, .pds-scope .pds-checkbox-widget-content, .pds-scope .pds-date-widget-content, .pds-scope .pds-dot-background, .pds-scope .pds-grid-widget-filter-content, .pds-scope .pds-grid-widget-pagination-control-content, .pds-scope .pds-gw-date-filter-content button.pds-date-widget-dialog-trigger-button, .pds-scope .pds-gw-date-filter-content input, .pds-scope .pds-gw-date-filter-content select.pds-gw-date-filter-operator-select, .pds-scope .pds-gw-multi-field-filter-content input, .pds-scope .pds-gw-multi-select-filter-content .pds-input-checkbox [type=checkbox]:checked~.pds-label-text:first-of-type, .pds-scope .pds-gw-multi-select-filter-content .pds-input-checkbox [type=checkbox]:not(:checked)~.pds-label-text:first-of-type, .pds-scope .pds-gw-number-filter-content input, .pds-scope .pds-gw-number-filter-content select, .pds-scope .pds-gw-pill-select-filter-content button, .pds-scope .pds-gw-select-filter-content select, .pds-scope .pds-gw-text-filter-content input, .pds-scope .pds-number-widget-content, .pds-scope .pds-numbered-slider-content, .pds-scope .pds-progress-bar, .pds-scope .pds-radio-button-widget-content, .pds-scope .pds-reporting-term-select-container, .pds-scope .pds-search-container, .pds-scope .pds-section-select-content, .pds-scope .pds-select-widget-content, .pds-scope .pds-text-widget-content, .pds-scope .pds-textarea-widget-content, .pds-scope body, .pds-scope html {
+body.set-to-dark:not(.disable-dark-mode) div[style="color:black;cursor:pointer;"], 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .class-block, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-app-nav-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-app-switcher-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-calendar-days, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-calendar-selectors, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-checkbox-widget-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-date-widget-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-dot-background, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-grid-widget-filter-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-grid-widget-pagination-control-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-date-filter-content button.pds-date-widget-dialog-trigger-button, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-date-filter-content input, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-date-filter-content select.pds-gw-date-filter-operator-select, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-multi-field-filter-content input, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-multi-select-filter-content .pds-input-checkbox [type=checkbox]:checked~.pds-label-text:first-of-type, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-multi-select-filter-content .pds-input-checkbox [type=checkbox]:not(:checked)~.pds-label-text:first-of-type, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-number-filter-content input, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-number-filter-content select, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-pill-select-filter-content button, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-select-filter-content select, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-gw-text-filter-content input, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-number-widget-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-numbered-slider-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-progress-bar, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-radio-button-widget-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-reporting-term-select-container, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-search-container, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-section-select-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-select-widget-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-text-widget-content, 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope .pds-textarea-widget-content, 
+.pds-scope body.set-to-dark:not(.disable-dark-mode), 
+body.set-to-dark:not(.disable-dark-mode) .pds-scope html {
     color: #cbd2d9 !important
 }
 
@@ -8636,7 +8700,8 @@ body.set-to-dark:not(.disable-dark-mode) td[style="background-color: white;"] {
 
 body.set-to-dark:not(.disable-dark-mode) table table tbody tr:nth-child(odd)>td,
 body.set-to-dark:not(.disable-dark-mode) .yui-skin-sam .yui-dt-data tr.yui-dt-odd,
-body.set-to-dark:not(.disable-dark-mode) .scrollableDisplay span:nth-child(2n) {
+body.set-to-dark:not(.disable-dark-mode) .scrollableDisplay span:nth-child(2n),
+body.set-to-dark:not(.disable-dark-mode) .hierarchical-standards-list li:nth-of-type(2n) {
     background-color: #242f39;
 }
 
@@ -8648,7 +8713,8 @@ body.set-to-dark:not(.disable-dark-mode) tr>td[style="background-color:#fff"],
 body.set-to-dark:not(.disable-dark-mode) #dex-pub-table tr:nth-child(odd),
 body.set-to-dark:not(.disable-dark-mode) fieldset>div:nth-of-type(odd):not(.button-row), 
 body.set-to-dark:not(.disable-dark-mode) .fluid-form>div:nth-of-type(odd),
-body.set-to-dark:not(.disable-dark-mode) .pswb .whiteboard tr:nth-child(odd) > td {
+body.set-to-dark:not(.disable-dark-mode) .pswb .whiteboard tr:nth-child(odd) > td,
+body.set-to-dark:not(.disable-dark-mode) .hierarchical-standards-list li:nth-of-type(2n+1) {
     background-color: #323F48 !important
 }
 
@@ -8829,6 +8895,16 @@ body.set-to-dark:not(.disable-dark-mode) a.button {
     background-color: #d3b77f;
     color: black !important
 }
+
+body.set-to-dark:not(.disable-dark-mode) #formcontainer button.btn-default {
+    background-color: #ffda8f !important;
+    filter: brightness(.8);
+}
+
+body.set-to-dark:not(.disable-dark-mode) #formcontainer button.btn-default:hover {
+    filter: brightness(1);
+}
+
 body.set-to-dark:not(.disable-dark-mode) #btnSubmit[type="submit"][name="btnSubmit"] {
     background-color: #d3b77f !important;
     color: black !important
@@ -8994,7 +9070,9 @@ body.set-to-dark:not(.disable-dark-mode) .staff_picker_content button.staff_drop
 body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-select-field .neon-select-field-button, 
 body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-list-item-popper ul.neon-list-item-popper-list, 
 body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-list-item .neon-list-item.neon-list-item-is-selected,
-body.set-to-dark:not(.disable-dark-mode) input[type=search], input[type=search]::placeholder {
+body.set-to-dark:not(.disable-dark-mode) input[type=search], input[type=search]::placeholder,
+body.set-to-dark:not(.disable-dark-mode) .transparent input,
+body.set-to-dark:not(.disable-dark-mode) .transparent input.form-control[style="background-color: #eeeeee !important;"] {
     background-color: #52606D !important;
     color: #f5f7fa !important;
     accent-color: #72c5a2
@@ -9077,7 +9155,9 @@ body.set-to-dark:not(.disable-dark-mode) table.linkDescList tbody.tbody tr:nth-c
 body.set-to-dark:not(.disable-dark-mode) .headerrow,
 body.set-to-dark:not(.disable-dark-mode) .rightSideDrawerPanel h1,
 body.set-to-dark:not(.disable-dark-mode) .drawerPanel h1,
-body.set-to-dark:not(.disable-dark-mode) #attByClass {
+body.set-to-dark:not(.disable-dark-mode) #attByClass,
+body.set-to-dark:not(.disable-dark-mode) .modal-header,
+body.set-to-dark:not(.disable-dark-mode) #formcontainer .card-header {
     color: #cbd2d9;
     background: #195f7d !important;
 }
@@ -9140,10 +9220,6 @@ body.set-to-dark:not(.disable-dark-mode) [src="/images/formbuilder/form-delete-i
     filter: brightness(2);
 }
 
-body.set-to-dark:not(.disable-dark-mode) .form.editable #formcontainer .element.dependent {
-    color: black;
-}
-
 body.set-to-dark:not(.disable-dark-mode) .box-round table.linkDescList th,
 body.set-to-dark:not(.disable-dark-mode) table.pvtTable tbody tr th,
 body.set-to-dark:not(.disable-dark-mode) table.pvtTable thead tr th,
@@ -9152,7 +9228,8 @@ body.set-to-dark:not(.disable-dark-mode) .button-footer.notification {
     background: #195f7d !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) .ui-datepicker-header {
+body.set-to-dark:not(.disable-dark-mode) .ui-datepicker-header,
+body.set-to-dark:not(.disable-dark-mode) .counselor-assignment-logic > div:nth-child(2n+1) > div {
     background: #242f39 !important;
     color: #cbd2d9;
 }
@@ -9162,7 +9239,8 @@ body.set-to-dark:not(.disable-dark-mode) #dashPortlets table tr:nth-child(2n) {
     background: #242f39 !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) .buttonpane {
+body.set-to-dark:not(.disable-dark-mode) .buttonpane,
+body.set-to-dark:not(.disable-dark-mode) .yui-skin-sam .yui-dt-scrollable .yui-dt-bd {
     background: #323F48;
     background-color: #323F48 !important;
 }
@@ -9218,7 +9296,9 @@ body.set-to-dark:not(.disable-dark-mode) div:not(.fc-timegrid-slots):not(.fc-tim
 body.set-to-dark:not(.disable-dark-mode) td[style="background-color: rgb(255, 255, 255);"]:not(.userTable),
 body.set-to-dark:not(.disable-dark-mode) .scrollableDisplay span.schoolRoleSpan:nth-child(odd),
 body.set-to-dark:not(.disable-dark-mode) table table tr:nth-child(2n+1) > td,
-body.set-to-dark:not(.disable-dark-mode) .ui-state-default, .ui-widget-content .ui-state-default {
+body.set-to-dark:not(.disable-dark-mode) .ui-state-default, 
+body.set-to-dark:not(.disable-dark-mode) .ui-widget-content .ui-state-default,
+body.set-to-dark:not(.disable-dark-mode) .counselor-assignment-logic > div:nth-child(2n) > div {
     background-color: #323F48;
 }
 
@@ -9282,7 +9362,9 @@ body.set-to-dark:not(.disable-dark-mode) .neon-select-field-selected-header-text
 body.set-to-dark:not(.disable-dark-mode) table.srDashboardGrid tbody tr[style="background-color: rgb(215, 235, 244);"] {
     background-color: #323F48 !important;
 }
-body.set-to-dark:not(.disable-dark-mode) .prDropList .ui-state-default, .prDropList .ui-widget-content .ui-state-default, .prDropList .ui-widget-header .ui-state-default {
+body.set-to-dark:not(.disable-dark-mode) .prDropList .ui-state-default, 
+body.set-to-dark:not(.disable-dark-mode) .prDropList .ui-widget-content .ui-state-default, 
+body.set-to-dark:not(.disable-dark-mode) .prDropList .ui-widget-header .ui-state-default {
     color: black;
 }
 
@@ -9314,7 +9396,9 @@ body.set-to-dark:not(.disable-dark-mode) .accordionSection.active {
     background-color: #242f39 !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) #logEntryTable tr:nth-child(even), .gridWidget fieldset .multi-select-dropdown .multi-select-dropdown-container .dropdown-menu {
+body.set-to-dark:not(.disable-dark-mode) #logEntryTable tr:nth-child(even), 
+body.set-to-dark:not(.disable-dark-mode) .gridWidget fieldset .multi-select-dropdown .multi-select-dropdown-container .dropdown-menu,
+body.set-to-dark:not(.disable-dark-mode) table.linkDescList tbody tr:nth-child(2n+1)>td {
     background-color: #3E4C59 !important
 }
 
@@ -9322,7 +9406,7 @@ body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-bdiv tr.ui-state-highlight t
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-bdiv tr.ui-state-highlight:nth-child(odd) td,
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-bdiv tr:nth-child(odd) td.ui-state-highlight,
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-bdiv tr.ui-widget-content.ui-state-highlight.ui-state-hover td,
-body.set-to-dark:not(.disable-dark-mode) table.linkDescList table tr.ui-state-highlight:nth-child(2n+1)>td,
+body.set-to-dark:not(.disable-dark-mode) table.linkDescList tbody tr:nth-child(2n+1) > td,
 body.set-to-dark:not(.disable-dark-mode) table:not(#schedMatrixTable) table tbody tr.ui-state-highlight:nth-child(2n+1)>td {
     background-color: #3d725c
 }
@@ -9580,6 +9664,14 @@ body.set-to-dark:not(.disable-dark-mode) .feedback-info {
     border: 1px solid #075b7f
 }
 
+body.set-to-dark.psteacher:not(.disable-dark-mode) #teacherSectionTable a:hover {
+    background-color: #3a5a68 !important;
+}
+
+body.set-to-dark.psteacher:not(.disable-dark-mode) #teacherSectionTable img {
+    filter: brightness(1.5);
+}
+
 body.set-to-dark:not(.disable-dark-mode) .feedback-info p,
 body.set-to-dark:not(.disable-dark-mode) .feedback-info li,
 body.set-to-dark:not(.disable-dark-mode) div.feedback-info,
@@ -9768,7 +9860,8 @@ body.set-to-dark:not(.disable-dark-mode) .neon-item-picker-list {
 body.set-to-dark:not(.disable-dark-mode) .gridSched th,
 body.set-to-dark:not(.disable-dark-mode) td.scheduleHeader,
 body.set-to-dark:not(.disable-dark-mode) #form-list-table th,
-body.set-to-dark:not(.disable-dark-mode) #responderTable th {
+body.set-to-dark:not(.disable-dark-mode) #responderTable th,
+body.set-to-dark:not(.disable-dark-mode) .hierarchical-button-row {
     background-color: #195f7d !important;
 }
 
@@ -11009,13 +11102,14 @@ body.set-to-dark:not(.disable-dark-mode) h1,
 body.set-to-dark:not(.disable-dark-mode) .forms-description,
 body.set-to-dark:not(.disable-dark-mode) .bootstrap,
 body.set-to-dark:not(.disable-dark-mode) .status-text-color,
-body.set-to-dark:not(.disable-dark-mode) #formcontainer .description,
 body.set-to-dark:not(.disable-dark-mode) #responderForm body {
     color: #cbd2d9 !important;
 }
-body.set-to-dark:not(.disable-dark-mode) .frames body {
+body.set-to-dark:not(.disable-dark-mode) .frames body,
+body.set-to-dark:not(.disable-dark-mode) #formcontainer .description {
     color: #cbd2d9;
 }
+
 body.set-to-dark:not(.disable-dark-mode) .Requested,
 body.set-to-dark:not(.disable-dark-mode) .NotRequested,
 body.set-to-dark:not(.disable-dark-mode) .Scheduled,
@@ -11066,12 +11160,19 @@ body.set-to-dark:not(.disable-dark-mode) #fb_content_preReg div main {
     background-color:#1F2933;
 }
 
+/*jqgrid width issues*/
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-bdiv,
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-view,
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-hdiv {
     width: auto !important;
-    max-width: calc(100% - 20px);
+    /*max-width: calc(100% - 20px);*/
+    max-width: 100%;
 }
+
+/*body.set-to-dark:not(.disable-dark-mode) #gview_teacherAccessSchoolsTable,*/
+/*body.set-to-dark:not(.disable-dark-mode) #gview_teacherAccessSchoolsTable .ui-jqgrid-hdiv {*/
+/*    max-width: 100% !important;*/
+/*}*/
 
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid:not(#gbox_teacherAccessSchoolsTable) {
     width: calc(100% - 40px) !important;

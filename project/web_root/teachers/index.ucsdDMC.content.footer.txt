@@ -1,3 +1,18 @@
+<script>
+    (function () {
+        try {
+            const KEY = 'ucsd_dark_mode';
+            const userPref = localStorage.getItem(KEY);
+            const sys = matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = userPref === '1' || (userPref === null && sys);
+            document.documentElement.classList.toggle('set-to-dark', isDark);
+            document.body.classList.toggle('set-to-dark', isDark);
+            document.body.classList.toggle('set-to-light', !isDark);
+        } catch (e) {
+            console.warn('early dark apply failed', e);
+        }
+    })();
+</script>
 <style>
     body.set-to-dark:not(.disable-dark-mode) {
         color: #cbd2d9;
@@ -356,6 +371,10 @@
     /*body.set-to-dark:not(.disable-dark-mode) .dropdown-toggle {*/
     /*    background: revert !important*/
     /*}*/
+    
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable:not(.scrollable) tbody td a {
+        color: #d3b77f !important;
+    }
 
     body.set-to-dark:not(.disable-dark-mode) input,
     body.set-to-dark:not(.disable-dark-mode) button,
@@ -569,7 +588,8 @@
     body.set-to-dark:not(.disable-dark-mode) label,
     body.set-to-dark:not(.disable-dark-mode) .course-grade-details .attendance-counts,
     body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable thead th:not(.highlight),
-    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable thead td:not(.highlight) {
+    body.set-to-dark:not(.disable-dark-mode) .gridWidget .gridTable thead td:not(.highlight),
+    body.set-to-dark:not(.disable-dark-mode) .navbar-app.pds-app-header-bar .pds-app-actions .user-menu-dropdown li {
         color: #cbd2d9 !important
     }
 
@@ -608,24 +628,248 @@
     }
 
     body.set-to-dark:not(.disable-dark-mode) table>thead>tr>th,
-    body.set-to-dark:not(.disable-dark-mode) table>thead>tr>td {
+    body.set-to-dark:not(.disable-dark-mode) table>thead>tr>td,
+    body.set-to-dark:not(.disable-dark-mode) .table-bordered th, 
+    body.set-to-dark:not(.disable-dark-mode) .table-bordered td.bold {
         background: #195f7d !important
     }
-</style>
-<script>
-    (function() {
-    try {
-        const darkKey = "ucsd_dark_mode";
-        const userPref = localStorage.getItem(darkKey);
-        const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const isDark = userPref === "1" || (userPref === null && systemPref);
-        if (isDark) {
-            document.documentElement.classList.add('set-to-dark');
-            document.body.classList.toggle("set-to-dark", isDark);
-            document.body.classList.toggle("set-to-light", !isDark);
-        }
-    } catch (e) {
-        console.warn("Failed to apply dark mode early:", e);
+    
+    body.set-to-dark:not(.disable-dark-mode) a,
+    body.set-to-dark:not(.disable-dark-mode) #standard-grades-container .panel .panel-body table td {
+        color: #cbd2d9;
     }
-})();
+    
+    body.set-to-dark:not(.disable-dark-mode) .btn-default {
+        background: #3E4C59;
+    }
+    
+    body.set-to-dark:not(.disable-dark-mode) .btn-default.manual-override {
+        background: #195f7d;
+    }
+</style>
+
+<style id="ucsd-ptp-toggle-styles">
+    #custom-ucsd-ptp-toggles {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 1029;
+        display: inline-flex;
+        gap: 12px;
+        align-items: center;
+        pointer-events: auto;
+        height: 20px;
+        top: auto;
+        right: auto;
+        margin: 5px;
+    }
+
+    #custom-ucsd-ptp-toggles .ucsd-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 6px;
+        border-radius: 999px;
+        background: rgba(0,0,0,0.06);
+        color: #111;
+    }
+    .set-to-dark #custom-ucsd-ptp-toggles .ucsd-chip {
+        background: rgba(255,255,255,0.08);
+        color: #e5e7eb;
+    }
+
+    .student-dark-switch {
+        position: relative;
+        display: inline-flex;
+        width: 50px;
+        height: 24px;
+        vertical-align: middle;
+        line-height: 1.42857143;
+    }
+    .student-dark-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        
+    }
+    #student-dark-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: red;
+        transition: 0.4s;
+        border-radius: 24px;
+        width: 50px;
+        height: 20px;
+    }
+    #student-dark-slider::after {
+        content: "Off";
+        position: absolute;
+        left: 26px;
+        top: 1px;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        pointer-events: none;
+        transition: background-color 0.4s ease;
+    }
+    #student-dark-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px; width: 16px;
+        left: 2px; bottom: 2px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+        z-index: 100;
+    }
+    .student-dark-switch input:checked + #student-dark-slider {
+        background-color: green;
+    }
+    .student-dark-switch input:checked + #student-dark-slider:before {
+        transform: translateX(30px);
+    }
+    .student-dark-switch input:checked + #student-dark-slider::after {
+        content: "On";
+        color: black;
+        left: 8px !important;
+    }
+    
+    .dark-label {
+        background: none;
+        color: black !important;
+    }
+    
+    body.set-to-dark:not(.disable-dark-mode) #darkModeToggleSpan { color: #cbd2d9; }
+    body.set-to-dark:not(.disable-dark-mode) #student-dark-slider { background-color: #444; }
+    body.set-to-dark:not(.disable-dark-mode) .student-dark-switch input:checked + #student-dark-slider { background-color: #2ecc71; }
+    body.set-to-dark:not(.disable-dark-mode) #student-dark-slider:before { background-color: #fff; }
+    body.set-to-dark:not(.disable-dark-mode) .dark-label { color: #cbd2d9 !important; }
+</style>
+
+<script>
+    (function () {
+        const KEY = 'ucsd_dark_mode';
+        const PARENT_ID = 'custom-ucsd-ptp-toggles';
+        const TOGGLE_WRAPPER_ID = 'darkModeToggleSpan';
+        const HEADER_SEL = '.pds-app-header-bar';
+        const RIGHT_OFFSET_PX = 250;
+        const TOP_GAP_PX = 6;
+
+        function ensureParent() {
+            let parent = document.getElementById(PARENT_ID);
+            if (!parent) {
+                parent = document.createElement('div');
+                parent.id = PARENT_ID;
+                parent.setAttribute('aria-live', 'polite');
+                document.body.appendChild(parent);
+            }
+            return parent;
+        }
+
+        function positionParent() {
+            function isMobileView() {
+                return (
+                    window.innerWidth <= 768 ||
+                    window.matchMedia('(pointer: coarse)').matches
+                );
+            }
+            const parent = ensureParent();
+            if (!isMobileView()) {
+                
+                const header = document.querySelector(HEADER_SEL);
+                let top = 10;
+                if (header) {
+                    const rect = header.getBoundingClientRect();
+                    top = Math.max(0, rect.top + rect.height + TOP_GAP_PX);
+                    top += window.scrollY || 0;
+                }
+                parent.style.top = `${top}px`;
+                parent.style.right = `${RIGHT_OFFSET_PX}px`;
+                parent.style.left = 'auto';
+            } else {
+                parent.removeAttribute('style');
+            }
+                
+        }
+
+        function ensureDarkToggle() {
+            if (document.getElementById(TOGGLE_WRAPPER_ID)) return;
+
+            const span = document.createElement('span');
+            span.id = TOGGLE_WRAPPER_ID;
+            span.className = 'ucsd-chip';
+            span.innerHTML = `
+                <span class="label dark-label">Dark:</span>
+                <label class="student-dark-switch" aria-live="polite">
+                    <input type="checkbox" id="darkModeChbx" name="darkModeChbx" aria-pressed="false" aria-label="Dark mode turned off">
+                    <span id="student-dark-slider"></span>
+                </label>
+            `;
+
+            ensureParent().appendChild(span);
+
+            const checkbox = span.querySelector('#darkModeChbx');
+
+            function computeIsDark() {
+                const userPref = localStorage.getItem(KEY);
+                const systemPref = matchMedia('(prefers-color-scheme: dark)').matches;
+                return userPref === '1' || (userPref === null && systemPref);
+            }
+            
+            function apply(isDark) {
+                document.documentElement.classList.toggle('set-to-dark', isDark);
+                document.body.classList.toggle('set-to-dark', isDark);
+                document.body.classList.toggle('set-to-light', !isDark);
+                if (checkbox) {
+                    checkbox.checked = isDark;
+                    checkbox.setAttribute('aria-pressed', String(isDark));
+                    checkbox.setAttribute('aria-label', isDark ? 'Dark mode turned on' : 'Dark mode turned off');
+                }
+            }
+
+            apply(computeIsDark());
+
+            checkbox.addEventListener('change', () => {
+                const next = checkbox.checked;
+                localStorage.setItem(KEY, next ? '1' : '0');
+                apply(next);
+            });
+
+            const mq = matchMedia('(prefers-color-scheme: dark)');
+            mq.addEventListener('change', () => {
+                if (localStorage.getItem(KEY) === null) apply(computeIsDark());
+            });
+
+            window.addEventListener('storage', (e) => {
+                if (e.key === KEY) apply(computeIsDark());
+            });
+        }
+
+        function boot() {
+            ensureParent();
+            ensureDarkToggle();
+            positionParent();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', boot);
+        } else {
+            boot();
+        }
+
+        const headerObserver = new MutationObserver(positionParent);
+        const bodyObserver = new MutationObserver(() => {
+            const header = document.querySelector(HEADER_SEL);
+            if (header) {
+                headerObserver.disconnect();
+                headerObserver.observe(header, { attributes: true, childList: true, subtree: true });
+                positionParent();
+            }
+        });
+        bodyObserver.observe(document.body, { childList: true, subtree: true });
+
+        window.addEventListener('resize', positionParent, { passive: true });
+        window.addEventListener('scroll', positionParent, { passive: true });
+    })();
 </script>
