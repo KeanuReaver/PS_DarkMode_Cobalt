@@ -15,10 +15,10 @@ body {
     /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;*/
 }
 
-body:not(.remove-opening-blur):not(.set-to-dark):not(.set-to-light):not(.disable-dark-mode):not(.psteacher) {
-    /*filter: blur(6px) opacity(0);*/
-    /*transition: filter 300ms ease;*/
-}
+/* body:not(.remove-opening-blur):not(.set-to-dark):not(.set-to-light):not(.disable-dark-mode):not(.psteacher) {
+    filter: blur(6px) opacity(0);
+    transition: filter 300ms ease;
+} */
 
 html.set-to-light {
     background: white !important;
@@ -179,9 +179,9 @@ body.set-to-dark:not(.disable-dark-mode) {
         background: white;
         overflow-y: scroll;
     }
-    body:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container.new:not(.pds) {
-        grid-template-columns: 110px 90px auto;
-    }
+    /*body.psteacher.teacher_menu_options:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container.new:not(.pds) {*/
+    /*    grid-template-columns: 110px 90px auto;*/
+    /*}*/
     
     body #container-frame:not(.pds)>#content-main, body #container:not(.pds)>#content-main {
         overflow-y: scroll !important;
@@ -197,10 +197,22 @@ body.set-to-dark:not(.disable-dark-mode) {
         width: 95%;
         max-width: 95%;
     }
+    
+    
 }
 
 #students-list span em {
     color: #eccd8e !important;
+}
+
+body.set-to-dark:not(.disable-dark-mode) div#staff_details_information em {
+    font-weight: 400;
+    color: #804000;
+    color: #eccd8e !important;
+}
+
+body.set-to-dark:not(.disable-dark-mode) div#staff_details_information {
+    color: #cbd2d9 !important;
 }
 
 body:not(.disable-dark-mode):not(.set-to-dark):not(.set-to-light):not(.psteacher)  #printLink:not(#nav-main):not(#header),
@@ -431,7 +443,7 @@ body.set-to-dark:not(.disable-dark-mode) #container-frame #content-main,
 body.set-to-dark:not(.disable-dark-mode) #container-frame,
 #container-frame,
 html {
-    min-height: 100%;
+    min-height: 98%;
     /*height: auto;*/
 }
 
@@ -536,6 +548,11 @@ body.set-to-dark:not(.disable-dark-mode) .panel-header {
 
 
 /* END Create Plugin Package Edits */
+
+body.set-to-dark:not(.disable-dark-mode) .titledList p:nth-of-type(odd),
+body.set-to-dark:not(.disable-dark-mode) .titledList p:nth-of-type(even) {
+    background-color: #242f39;
+}
 
 /* START Edits for Task Manager page */
 
@@ -698,7 +715,8 @@ body.set-to-dark:not(.disable-dark-mode) a.dt-button span{
     color: black;
 }
 
-body.set-to-dark:not(.disable-dark-mode) .main-container div.active {
+body.set-to-dark:not(.disable-dark-mode) .main-container div.active,
+body.set-to-dark:not(.disable-dark-mode) .newform .description label {
     color: #eccd8e;
 }
 body.set-to-dark:not(.disable-dark-mode) .main-container div.active span img {
@@ -709,7 +727,8 @@ body.set-to-dark:not(.disable-dark-mode) .main-container div:not(:active) span i
     filter: invert(1);
 }
 
-body.set-to-dark:not(.disable-dark-mode) .main-container div {
+body.set-to-dark:not(.disable-dark-mode) .main-container,
+body.set-to-dark:not(.disable-dark-mode) .newform .description {
     color: #cbd2d9;
 }
 
@@ -722,7 +741,8 @@ body.set-to-dark:not(.disable-dark-mode) .card {
     color: #cbd2d9 !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) p:has(a.multi_select_tch) {
+body.set-to-dark:not(.disable-dark-mode) p:has(a.multi_select_tch),
+body.set-to-dark:not(.disable-dark-mode) .pds-app-switcher[data-tippy-root] .tippy-box.popover-theme.pds-app-switcher-theme.pds-app-switcher .app-switcher-product-list.pds-app-switcher {
     background-color: #52606D !important;
 }
 
@@ -820,7 +840,8 @@ body.set-to-dark:not(.disable-dark-mode) #container-frame-menu #nav-main-frame-s
 }
 
 body.set-to-dark:not(.disable-dark-mode) .ui-icon-triangle-1-e,
-body.set-to-dark:not(.disable-dark-mode) .ui-icon-triangle-1-s {
+body.set-to-dark:not(.disable-dark-mode) .ui-icon-triangle-1-s,
+body.set-to-dark:not(.disable-dark-mode) .ui-icon-triangle-1-n {
     filter: invert(1);
 }
 
@@ -1156,15 +1177,15 @@ body.set-to-dark:not(.disable-dark-mode) .dex-intro i {
     color: #cbd2d9 !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) a.pds-powerschool-logo:focus-visible, 
+/* body.set-to-dark:not(.disable-dark-mode) a.pds-powerschool-logo:focus-visible, 
 body.set-to-dark:not(.disable-dark-mode) a.pds-powerschool-logo:focus, 
 body.set-to-dark:not(.disable-dark-mode) a.header-app-back:focus-visible, 
 body.set-to-dark:not(.disable-dark-mode) a.header-app-back:focus {
-    /*outline: none !important;*/
-    /*outline-offset: 0 !important;*/
-    /*outline-color: transparent !important;*/
-    /*outline-width: 0 !important;*/
-}
+    outline: none !important;
+    outline-offset: 0 !important;
+    outline-color: transparent !important;
+    outline-width: 0 !important;
+} */
 
 body.set-to-dark:not(.disable-dark-mode) tr[style="background-color:#add8e6"],
 body.set-to-dark:not(.disable-dark-mode) tr.headerrow>td,
@@ -1176,6 +1197,16 @@ body.set-to-dark:not(.disable-dark-mode) .panelHeader {
     background: #195f7d !important
 }
 
+body.set-to-dark:not(.disable-dark-mode) .tippy-box.popover-theme.pds-app-switcher-theme.pds-app-switcher .app-switcher-product-list.pds-app-switcher a.pds-app-switcher:hover,
+body.set-to-dark:not(.disable-dark-mode) .pds-app-switcher[data-tippy-root] .tippy-box.popover-theme.pds-app-switcher-theme.pds-app-switcher .app-switcher-product-list.pds-app-switcher a.pds-app-switcher:focus {
+    background: #0d1e46;
+}
+
+body.set-to-dark:not(.disable-dark-mode) .pds-popover-header.pds-app-switcher {
+    background: #195f7d;
+    color: #cbd2d9;
+}
+
 body.set-to-dark:not(.disable-dark-mode) #fb_content a {
     background-image: none !important;
 }
@@ -1185,7 +1216,9 @@ body.set-to-dark:not(.disable-dark-mode) #container.new #breadcrumbs,
 body.set-to-dark:not(.disable-dark-mode) #container-frame.new #breadcrumbs div.scope,
 body.set-to-dark:not(.disable-dark-mode) #container.new #breadcrumbs div.scope,
 body.set-to-dark:not(.disable-dark-mode) table.grid>thead>tr>th,
-body.set-to-dark:not(.disable-dark-mode) tr[bgcolor="f6f6f6"] {
+body.set-to-dark:not(.disable-dark-mode) tr[bgcolor="f6f6f6"],
+body.set-to-dark:not(.disable-dark-mode) #gp-progress-detail-controller-div #detail-div #item-div #progress-node-detail-div > table tr > th,
+body.set-to-dark:not(.disable-dark-mode) #gp-progress-detail-controller-div #detail-div #item-div .simple-gp-table-div > table tr > th {
     background: #195f7d;
     background-color: #195f7d
 }
@@ -1451,7 +1484,8 @@ body.set-to-dark:not(.disable-dark-mode) input.dt-button {
     background-color: #d3b77f !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) .ui-dialog-buttonset > button.ui-button {
+body.set-to-dark:not(.disable-dark-mode) .ui-dialog-buttonset > button.ui-button,
+body.set-to-dark:not(.disable-dark-mode) .ui-dialog .ui-dialog-buttonpane button.ui-button.ui-state-default:focus {
     background-color: #d3b77f;
     color: black
 }
@@ -1531,7 +1565,7 @@ body.set-to-dark:not(.disable-dark-mode) .search-results>li .search-result-actio
     fill: #1f2933 !important
 }
 
-body.set-to-dark:not(.disable-dark-mode) button:hover,
+body.set-to-dark:not(.disable-dark-mode) button:not(.pds-user-menu-trigger):hover,
 body.set-to-dark:not(.disable-dark-mode) button:focus,
 body.set-to-dark:not(.disable-dark-mode) .button:hover,
 body.set-to-dark:not(.disable-dark-mode) .button:focus,
@@ -1793,6 +1827,24 @@ body.set-to-dark:not(.disable-dark-mode) .counselor-assignment-logic > div:nth-c
     color: #cbd2d9;
 }
 
+body.set-to-dark:not(.disable-dark-mode) label.radioSlider.off {
+    background-color: #0f5c0e;
+    color: #cbd2d9;
+}
+body.set-to-dark:not(.disable-dark-mode) label.radioSlider.on {
+    background-color: #195f7d;
+    color: #cbd2d9;
+}
+
+body.set-to-dark:not(.disable-dark-mode) .progress-vidget-mini .tile-progress-box {
+    background-color: #751616;
+}
+
+body.set-to-dark:not(.disable-dark-mode) .progress-vidget-mini .tile-progress-box span {
+    background-color: #0f5c0e;
+}
+
+
 body.set-to-dark:not(.disable-dark-mode) .pss-drawer,
 body.set-to-dark:not(.disable-dark-mode) #dashPortlets table tr:nth-child(2n),
 body.set-to-dark:not(.disable-dark-mode) .rightSideDrawerPanel, 
@@ -1818,7 +1870,8 @@ body.set-to-dark:not(.disable-dark-mode) #legend {
 
 body.set-to-dark:not(.disable-dark-mode) #legend strong,
 body.set-to-dark:not(.disable-dark-mode) #legend span,
-body.set-to-dark:not(.disable-dark-mode) #legend p {
+body.set-to-dark:not(.disable-dark-mode) #legend p,
+body.set-to-dark:not(.disable-dark-mode) .progress-vidget-mini .tile-percentage-box {
     color: #cbd2d9;
 }
 
@@ -2239,7 +2292,8 @@ body.set-to-dark:not(.disable-dark-mode) font[color="green"],
 body.set-to-dark:not(.disable-dark-mode) [id*="Page"][id$="Contacts"],
 body.set-to-dark:not(.disable-dark-mode) p[style="color: green"],
 body.set-to-dark:not(.disable-dark-mode) span[style="color: green"],
-body.set-to-dark:not(.disable-dark-mode) .green-text {
+body.set-to-dark:not(.disable-dark-mode) .green-text,
+body.set-to-dark:not(.disable-dark-mode) .twofactor-status-enabled {
     color: #72c5a2 !important
 }
 
@@ -2317,7 +2371,8 @@ body.set-to-dark:not(.disable-dark-mode) .modalDialog header {
     color: #cbd2d9 !important
 }
 
-body.set-to-dark:not(.disable-dark-mode) #btnNoNav em {
+body.set-to-dark:not(.disable-dark-mode) #btnNoNav em,
+body.set-to-dark:not(.disable-dark-mode) #table-quickdata button > .ui-icon-white {
     filter: invert(1)
 }
 
@@ -2330,7 +2385,8 @@ body.set-to-dark:not(.disable-dark-mode) #btnNoNav em {
 }
 
 body.set-to-dark:not(.disable-dark-mode) #nav-main li.selected, 
-body.set-to-dark:not(.disable-dark-mode) #nav-main-frame li.selected {
+body.set-to-dark:not(.disable-dark-mode) #nav-main-frame li.selected,
+body.set-to-dark:not(.disable-dark-mode) table tr.selected {
     background-color: #00427C;
 }
 
@@ -2828,9 +2884,9 @@ body.set-to-dark.yui-skin-sam:not(.disable-dark-mode) tr.yui-dt-odd td.yui-dt-de
     background-color: transparent !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) .ui-widget-content:not(.tabs) {
-    /*border: 1px solid #616E7C;*/
-}
+/* body.set-to-dark:not(.disable-dark-mode) .ui-widget-content:not(.tabs) {
+    border: 1px solid #616E7C;
+} */
 
 body.set-to-dark.yui-skin-sam:not(.disable-dark-mode) tr.yui-dt-highlighted,
 body.set-to-dark.yui-skin-sam:not(.disable-dark-mode) tr.yui-dt-highlighted td.yui-dt-asc,
@@ -2900,10 +2956,24 @@ body.set-to-dark:not(.disable-dark-mode) font[color="green"] {
     /*    overflow-y: scroll;*/
     /*}*/
     
+    body:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container.new:not(.pds) {
+        grid-template-columns: 110px 805px auto;
+    }
+    
+    body:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container.new:not(.pds).anchor-favorites {
+        grid-template-columns: 110px 3fr 1fr 255px;
+        grid-template-areas:
+            "header header header header"
+            "nav breadcrumbs breadcrumbs favorites"
+            "nav main main favorites"
+            "nav footer footer favorites";
+    }
+    
     #container {
         overflow: hidden;
     }
 }
+
 
 body.set-to-dark:not(.powerlunch-new):not(.quickdata):not(.noquickdata):not(.uiNoNav) #container-frame.pds:not(.pds-left-nav).details_view #details-view-nav .pds-vertical-tabs {
         background-color: #323F48 !important;
@@ -3525,6 +3595,14 @@ body.set-to-dark:not(body.disable-dark-mode) ::-webkit-scrollbar-thumb {
     background: #d3b77f;
 }
 
+body.set-to-dark:not(body.disable-dark-mode) #audit-history-dialog .audit-details tr:nth-child(even) {
+    background-color: #242f39;
+}
+
+body.set-to-dark:not(body.disable-dark-mode) #audit-history-dialog .audit-details tr:nth-child(odd) {
+    background-color: #323F48;
+}
+
 body.set-to-dark:not(.disable-dark-mode) .pds-app-nav-content.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav a.pds-is-active.pds-app-nav, 
 body.set-to-dark:not(.disable-dark-mode) .pds-app-nav-content.pds-app-nav .pds-app-nav-mobile-menu-secondary-plus.pds-app-nav a.pds-is-active.pds-app-nav, 
 body.set-to-dark:not(.disable-dark-mode) .pds-app-nav-content.pds-four-tier-support.pds-app-nav .pds-nav-primary.pds-app-nav .pds-app-nav-mega-menu.pds-app-nav a.pds-is-active.pds-app-nav, 
@@ -3714,9 +3792,9 @@ body.set-to-dark:not(.disable-dark-mode) .contactsElement div div.bottom .modal-
     color: #eccd8e !important;
 }
 /*body.set-to-dark:not(.disable-dark-mode) div.dropdowninline div.select2-container a.select2-choice,*/
-body.set-to-dark:not(.disable-dark-mode) ul.forms-tabs li.selected a {
-    color: black !important;
-}
+/*body.set-to-dark:not(.disable-dark-mode) ul.forms-tabs li.selected a {*/
+/*    color: black !important;*/
+/*}*/
 body.set-to-dark:not(.disable-dark-mode) .card-body {
     background: revert;
 }
@@ -3758,6 +3836,21 @@ body.set-to-dark:not(.disable-dark-mode) .bootstrap,
 body.set-to-dark:not(.disable-dark-mode) table.grid td {
     background-color: #323f48!important;
 }
+
+body.set-to-dark:not(.disable-dark-mode) .pssc .pssc-sideMenuPanel,
+body.set-to-dark:not(.disable-dark-mode) .pssc .pssc-studentList,
+body.set-to-dark:not(.disable-dark-mode) .pssc .pssc-zoomControlDiv > div.zoomin, 
+body.set-to-dark:not(.disable-dark-mode) .pssc .pssc-zoomControlDiv > div.zoomout {
+    background-color: #242f39;
+}
+
+body.set-to-dark:not(.disable-dark-mode) .pssc-seatDiv.seattaken {
+    background: #343151;
+}
+
+body.set-to-dark:not(.disable-dark-mode) .pssc .pssc-studentDiv .pssc-studentNameWrapperDiv > div {
+    background-color: rgba(0, 0, 0, 0.7);
+}
 body.set-to-dark:not(.disable-dark-mode) .whitefill {
     color: black !important;
 }
@@ -3767,6 +3860,10 @@ body.set-to-dark:not(.disable-dark-mode) .dropdown-menu > li > a:hover {
 }
 body.set-to-dark:not(.disable-dark-mode) label.custom-file span {
     color: black;
+}
+
+body.set-to-dark:not(.disable-dark-mode) .pssc .pssc-zoomControlDiv > div.zoomslider {
+    background: none !important;
 }
 body.set-to-dark:not(.disable-dark-mode) div.panel div.panel-heading button.close {
     opacity: 1 !important;
@@ -3784,19 +3881,10 @@ body.set-to-dark:not(.disable-dark-mode) #fb_content_preReg div main {
     background-color:#1F2933;
 }
 
-/*jqgrid width issues*/
-/*body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-bdiv,*/
-/*body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-view,*/
-/*body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-hdiv {*/
-/*    width: auto !important;*/
-    /*max-width: calc(100% - 20px);*/
-/*    max-width: 100%;*/
-/*}*/
-
-/*body.set-to-dark:not(.disable-dark-mode) #gview_teacherAccessSchoolsTable,*/
-/*body.set-to-dark:not(.disable-dark-mode) #gview_teacherAccessSchoolsTable .ui-jqgrid-hdiv {*/
-/*    max-width: 100% !important;*/
-/*}*/
+body.set-to-dark:not(.disable-dark-mode) .pssc .pssc-seatingAreaContainer,
+body.set-to-dark:not(.disable-dark-mode) .pssc .pssc-viewportBoundaryBox {
+    background: #1F2933;
+}
 
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid:not(#gbox_teacherAccessSchoolsTable) {
     width: calc(100% - 40px) !important;

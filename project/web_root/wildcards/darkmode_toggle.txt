@@ -26,14 +26,16 @@
 <style>
     body:not(.remove-opening-blur):not(.set-to-dark):not(.set-to-light):not(.disable-dark-mode):not(.psteacher) {
         filter: blur(6px) opacity(0);
-        /*transition: filter 300ms ease;*/
+        /* way too costly */
+        /* transition: filter 300ms ease; */
     }
     .student-dark-switch {
         position: relative;
-        display: inline-flex;
+        display: inline;
         width: 50px;
         height: 24px;
         vertical-align: middle;
+        margin-right: 25px;
     }
     .student-dark-switch input {
         opacity: 0;
@@ -42,7 +44,7 @@
     }
     
     #darkModeToggleSpan .student-dark-switch #student-dark-slider {
-        margin: 0;
+        margin: -4px 2px 0;
         position: absolute;
         cursor: pointer;
         top: 0;
@@ -137,12 +139,12 @@ $j(() => {
             html.classList.toggle("set-to-dark", isDark);
             html.classList.toggle("set-to-light", !isDark);
         } catch (e) {
-            // cross-origin or inaccessible — ignore
+            console.warning('ucsd dmc: cross-origin - ignore');
         }
     }
 
+    // deals with pages that contain multiple frames such as the teacher portal which uses a separate frame for the left nav
     function forEachSameOriginFrame(win, cb) {
-        // apply to current document
         cb(win.document);
 
         // recurse into same-origin frames
@@ -153,7 +155,7 @@ $j(() => {
                 void f.document;
                 forEachSameOriginFrame(f, cb);
             } catch (e) {
-                // cross-origin — skip
+                console.warning('ucsd dmc: cross-origin - skip');
             }
         }
     }
@@ -161,7 +163,7 @@ $j(() => {
     function applyDarkEverywhere() {
         const isDark = wantsDark();
         forEachSameOriginFrame(window.top || window, (doc) => applyDarkToDoc(doc, isDark));
-        // keep the checkbox in sync in this top document (others don't have the toggle)
+        // We (theoretically) only place the toggle in the parent body and not child frames. This keeps the checkbox in sync in this top document
         $j("#darkModeChbx").prop("checked", isDark);
     }
 
@@ -185,7 +187,9 @@ $j(() => {
                 if (iframe.contentDocument?.readyState === "complete") {
                     $j(iframe).contents().find("body").addClass("disable-dark-mode");
                 }
-            } catch (e) {}
+            } catch (e) {
+                console.warn('ucsd dmc: Failed to apply disable-dark-mode class to body:', e);
+            }
         });
     }
 
@@ -196,10 +200,11 @@ $j(() => {
             const $target = $j(sel);
             if ($target.length && !$target.find(toggleId).length) {
                 $target.prepend($j(toggleId));
+                $j(toggleId).show();
                 break;
             }
         }
-        $j(toggleId).show();
+        
     }
 
     // --- initial apply across all same-origin frames ---
@@ -225,7 +230,7 @@ $j(() => {
             m.addedNodes && m.addedNodes.forEach((node) => {
                 if (node.tagName === "IFRAME" && node.id !== 'vmaDocumentBlob') {
                     const iframe = node;
-                    // reduce flash until we apply classes
+                    // reduce flash (in theory) until we apply classes
                     const prevVis = iframe.style.visibility || 'visible';
                     iframe.style.visibility = "hidden";
                     $j(iframe).on("load", function () {
