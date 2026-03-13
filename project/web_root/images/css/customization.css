@@ -34,7 +34,7 @@
 }
 
 @media screen and (max-width: 480px) and (prefers-color-scheme: dark) {
-    #tools {
+    body.set-to-dark:not(.disable-dark-mode) #tools {
         background-color: black;
     }
 }
