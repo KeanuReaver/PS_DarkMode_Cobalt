@@ -691,32 +691,33 @@ body.set-to-dark:not(.disable-dark-mode) .form.editable #formcontainer .element.
 }
 
 body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-icon,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-button .neon-button.neon-2_10_0-button-utility:focus-visible neon-2_10_0-icon,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-button .neon-button.neon-2_10_0-button-utility:hover neon-2_10_0-icon {
+body.set-to-dark:not(.disable-dark-mode) .neon-button.neon-2_10_0-button-utility:focus-visible neon-2_10_0-icon,
+body.set-to-dark:not(.disable-dark-mode) .neon-button.neon-2_10_0-button-utility:hover neon-2_10_0-icon {
     fill: #cbd2d9 !important;
 }
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-button .neon-button.neon-2_10_0-button-utility:focus-visible neon-2_10_0-icon,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-button .neon-button.neon-2_10_0-button-utility:hover neon-2_10_0-icon {
+body.set-to-dark:not(.disable-dark-mode) .neon-button.neon-2_10_0-button-utility:focus-visible neon-2_10_0-icon,
+body.set-to-dark:not(.disable-dark-mode) .neon-button.neon-2_10_0-button-utility:hover neon-2_10_0-icon {
     filter: brightness(1.2);
 }
 
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-select-field div.neon-abstract-input-info p.neon-input-field-badge,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-date-field div.neon-abstract-input-info p.neon-input-field-badge,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-text-field div.neon-abstract-input-info p.neon-input-field-badge,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-number-field div.neon-abstract-input-info p.neon-input-field-badge {
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info p.neon-input-field-badge,
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info p.neon-input-field-badge,
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info p.neon-input-field-badge,
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info p.neon-input-field-badge {
     border: 1px solid rgb(177, 16, 16) !important;
     color: rgb(215, 103, 103) !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-accordion button.neon-accordion-toggle-button,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-text-field div.neon-abstract-input-info .neon-input-field-label,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-checkbox-single label .neon-2_10_0-checkbox-text,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-date-field div.neon-abstract-input-info .neon-input-field-label,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-select-field div.neon-abstract-input-info .neon-input-field-label,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-number-field div.neon-abstract-input-info .neon-input-field-label,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-textarea-field div.neon-abstract-input-info .neon-input-field-label,
+body.set-to-dark:not(.disable-dark-mode) button.neon-accordion-toggle-button,
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info .neon-input-field-label,
+body.set-to-dark:not(.disable-dark-mode) label .neon-2_10_0-checkbox-text,
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info .neon-input-field-label,
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info .neon-input-field-label,
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info .neon-input-field-label,
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info .neon-input-field-label,
 body.set-to-dark:not(.disable-dark-mode) .neon-2_10_0-table-simple,
-body.set-to-dark:not(.disable-dark-mode) .neon-input-field-label {
+body.set-to-dark:not(.disable-dark-mode) .neon-input-field-label,
+body.set-to-dark:not(.disable-dark-mode) .neon-input-field-char-count-text {
     color: #cbd2d9 !important;
 }
 
@@ -726,30 +727,30 @@ body.set-to-dark:not(.disable-dark-mode) button.pds-button-square.pds-grid-widge
     color: black !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-button .neon-button.neon-2_10_0-button-borderless {
+body.set-to-dark:not(.disable-dark-mode) .neon-button.neon-2_10_0-button-borderless {
     color: #4e94bf !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-modal-drawer .neon-drawer-container .neon-drawer,
+body.set-to-dark:not(.disable-dark-mode) .neon-drawer-container .neon-drawer,
 body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-accordion,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-accordion button.neon-accordion-toggle-button:hover,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-modal-dialog .neon-dialog-container .neon-dialog,
+body.set-to-dark:not(.disable-dark-mode) button.neon-accordion-toggle-button:hover,
+body.set-to-dark:not(.disable-dark-mode) .neon-dialog-container .neon-dialog,
 body.set-to-dark:not(.disable-dark-mode) .neon-2_10_0-date-article,
 body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-date-picker,
 body.set-to-dark:not(.disable-dark-mode) article[class^="neon"][class*="date-article"] table.neon-date-picker-dates th,
 body.set-to-dark:not(.disable-dark-mode) article.neon-2_17_0-popper-content,
-body.set-to-dark:not(.disable-dark-mode) neon-2_17_0-list-item .neon-list-item {
+body.set-to-dark:not(.disable-dark-mode) .neon-list-item {
     background-color: #323F48 !important;
     color: #cbd2d9 !important;
 }
 
 
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-date-picker table.neon-date-picker-dates td {
+body.set-to-dark:not(.disable-dark-mode) table.neon-date-picker-dates td {
     border-color: rgb(109, 107, 117) !important;
 }
 
 body.set-to-dark:not(.disable-dark-mode) pss-neon-select-field button,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-select-field .neon-select-field-selected-header-text {
+body.set-to-dark:not(.disable-dark-mode) .neon-select-field-selected-header-text {
     background-color: #52606D !important;
     color: white !important;
 }
@@ -759,8 +760,8 @@ body.set-to-dark:not(.disable-dark-mode) pss-neon-select-field button:hover {
     filter: brightness(1.2);
 }
 
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-modal-dialog .neon-dialog-container header.neon-modal-dialog-title,
-body.set-to-dark:not(.disable-dark-mode) neon-2_10_0-modal-drawer .neon-drawer-container header.neon-modal-drawer-title {
+body.set-to-dark:not(.disable-dark-mode) .neon-dialog-container header.neon-modal-dialog-title,
+body.set-to-dark:not(.disable-dark-mode) .neon-drawer-container header.neon-modal-drawer-title {
     color: #cbd2d9 !important;
 }
 
@@ -1291,9 +1292,14 @@ body.set-to-dark:not(.disable-dark-mode) tr[bgcolor="#f6f6f6"]>td,
 body.set-to-dark:not(.disable-dark-mode) tr[bgcolor="#f6f6f6"]>th {
     background-color: #195f7d !important;
 }
-body.set-to-dark:not(.disable-dark-mode) .yui-skin-sam .yui-dt th {
+body.set-to-dark:not(.disable-dark-mode).yui-skin-sam .yui-dt th {
     background: none !important;
     background-color: #195f7d !important;
+}
+
+body.set-to-dark:not(.disable-dark-mode).yui-skin-sam tr.yui-dt-even {
+    background-color: #242f39 !important;
+    background: #242f39;
 }
 
 body.set-to-dark:not(.disable-dark-mode) tr[bgcolor="#e9e9e9"]>td,
@@ -1736,9 +1742,10 @@ body.set-to-dark:not(.disable-dark-mode) #container-frame.new #breadcrumbs div.s
     background: transparent;
 }
 
-body.set-to-dark:not(.disable-dark-mode) table.dataTable tr.group td {
-    background-color: #1a1b48;
+body.set-to-dark:not(.disable-dark-mode) .dataTables_wrapper table.dataTable tr.group td.group-item-expander {
+    background-color: #1a1b48 !important;
 }
+
 body.set-to-dark:not(.disable-dark-mode) table.dataTable tr.subgroup td {
     background-color: #245b2e;
 }
@@ -2033,7 +2040,7 @@ body.set-to-dark:not(.disable-dark-mode) #nav-main-frame a:hover {
 
 body.set-to-dark:not(.disable-dark-mode) div:not(.fc-timegrid-slots):not(.fc-timegrid-cols)>table:not(.table):not(.routing-table):not(.fc-scrollgrid-sync-table):not(.fc-scrollgrid):not(.fc-scrollgrid-liquid):not(.testScoreTbl) tbody tr[role="row"]:nth-child(odd) > td[style="background-color: rgb(215, 237, 254);"],
 body.set-to-dark:not(.disable-dark-mode) .neon-2_17_0-time-article,
-body.set-to-dark:not(.disable-dark-mode) neon-2_23_0-modal-drawer .neon-drawer-container .neon-drawer {
+body.set-to-dark:not(.disable-dark-mode) .neon-drawer-container .neon-drawer {
     background-color: #323F48 !important;
 }
 
@@ -2070,9 +2077,11 @@ body.set-to-dark:not(.disable-dark-mode) .pagination li a {
     background-color: #323F48 !important;
 }
 
-body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-select-field div.neon-abstract-input-info p.neon-input-field-badge, neon-2_4_0-modal-drawer .neon-drawer-container header.neon-modal-drawer-title,
-body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-select-field div.neon-abstract-input-info .neon-input-field-label, neon-2_4_0-text-field div.neon-abstract-input-info p.neon-input-field-badge,
-body.set-to-dark:not(.disable-dark-mode) neon-2_4_0-checkbox-single label .neon-2_4_0-checkbox-text,
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info p.neon-input-field-badge, 
+body.set-to-dark:not(.disable-dark-mode) .neon-drawer-container header.neon-modal-drawer-title,
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info .neon-input-field-label, 
+body.set-to-dark:not(.disable-dark-mode) div.neon-abstract-input-info p.neon-input-field-badge,
+body.set-to-dark:not(.disable-dark-mode) label .neon-2_4_0-checkbox-text,
 body.set-to-dark:not(.disable-dark-mode) .neon-select-field-selected-header-text {
     color: #cbd2d9 !important;
 }
@@ -2092,8 +2101,13 @@ body.set-to-dark:not(.disable-dark-mode) .pseudoDialog,
 body.set-to-dark:not(.disable-dark-mode) .ui-jqgrid-bdiv td,
 body.set-to-dark:not(.disable-dark-mode) table.grid tr:nth-child(even)>td,
 body.set-to-dark:not(.disable-dark-mode) .scrollableDisplay span.schoolRoleSpan:nth-child(even),
-body.set-to-dark:not(.disable-dark-mode) .mfe-student-observations-form-container > :first-child {
+body.set-to-dark:not(.disable-dark-mode) .mfe-student-observations-form-container > :first-child,
+body.set-to-dark:not(.disable-dark-mode) .box-round[style="background: #f1f1f1;"] {
     background-color: #242f39
+}
+
+body.set-to-dark:not(.disable-dark-mode) .box-round[style="background: #f1f1f1;"] {
+    background: #242f39 !important;
 }
 body.set-to-dark:not(.disable-dark-mode) table.tablesorter tr:nth-child(even)>td {
     background-color: #242f39 !important
